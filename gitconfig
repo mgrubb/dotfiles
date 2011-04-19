@@ -1,0 +1,83 @@
+[user]
+	name = Michael Grubb
+	email = devel@dailyvoid.com
+
+[alias]
+	ci = commit
+	co = checkout
+	st = status
+	br = branch
+	di = diff
+	dt = difftool
+
+	# show difference between the HEAD and the index
+	staged = diff --cached
+	# show diff between working and index
+	unstaged = diff
+	# show wat would be commited with commit -a
+	both = diff HEAD
+
+[gui]
+
+[color]
+	ui = true
+	branch = auto
+	diff = auto
+	status = auto
+
+[color "branch"]
+	current = magenta
+	local = green
+	remote = magenta
+
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+
+[color "status"]
+	added = green
+	changed = blue
+	untracked = red
+
+[diff]
+	tool = gvimdiff
+
+[merge]
+	tool = kdiff3
+	verbosity = 5
+	summary = true
+
+[mergetool]
+	prompt = false
+
+[mergetool "kdiff3"]
+	path = /Developer/Applications/kdiff3.app/Contents/MacOS/kdiff3
+
+[gui]
+
+[core]
+	editor = gvim -f
+	quotepath = false
+	excludesfile = /Users/mgrubb/.gitignore
+
+[help]
+	autocorrect = 0
+	format = man
+
+[man]
+	viewer = iman
+	viewer = man
+
+[web]
+	browser = macosx-default-browser
+
+[man "iman"]
+	cmd = /usr/bin/iman
+
+[browser "macosx-default-browser"]
+	cmd = /Users/mgrubb/bin/open-url
+
+[branch]
+	autosetupmerge = true

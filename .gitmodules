@@ -1,0 +1,45 @@
+[submodule "vim/bundle/zencoding"]
+	path = vim/bundle/zencoding
+	url = git://github.com/mattn/zencoding-vim.git
+[submodule "vim/bundle/fugitive"]
+	path = vim/bundle/fugitive
+	url = git://github.com/tpope/vim-fugitive.git
+[submodule "vim/bundle/tskeleton"]
+	path = vim/bundle/tskeleton
+	url = git://github.com/tomtom/tskeleton_vim.git
+[submodule "vim/bundle/tlib"]
+	path = vim/bundle/tlib
+	url = git://github.com/tomtom/tlib_vim.git
+[submodule "vim/bundle/nerdtree"]
+	path = vim/bundle/nerdtree
+	url = git://github.com/scrooloose/nerdtree.git
+[submodule "vim/bundle/matchit"]
+	path = vim/bundle/matchit
+	url = git://github.com/vim-scripts/matchit.zip.git
+[submodule "vim/bundle/rails"]
+	path = vim/bundle/rails
+	url = git://github.com/tpope/vim-rails.git
+[submodule "vim/bundle/surround"]
+	path = vim/bundle/surround
+	url = git://github.com/tpope/vim-surround.git
+[submodule "vim/bundle/comments"]
+	path = vim/bundle/comments
+	url = git://github.com/h13ronim/vim-comments.git
+[submodule "vim/bundle/project"]
+	path = vim/bundle/project
+	url = git://github.com/shemerey/vim-project.git
+[submodule "vim/bundle/ttags"]
+	path = vim/bundle/ttags
+	url = git://github.com/tomtom/ttags_vim.git
+[submodule "vim/bundle/wiki"]
+	path = vim/bundle/wiki
+	url = git://github.com/vim-scripts/vimwiki.git
+[submodule "vim/bundle/yankring"]
+	path = vim/bundle/yankring
+	url = git://github.com/chrismetcalf/vim-yankring.git
+[submodule "vim/bundle/snipmate."]
+	path = vim/bundle/snipmate.
+	url = git://github.com/msanders/snipmate.vim.git
+[submodule "vim/bundle/snipmate"]
+	path = vim/bundle/snipmate
+	url = git://github.com/msanders/snipmate.vim.git

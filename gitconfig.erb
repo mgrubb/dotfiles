@@ -57,7 +57,7 @@
 [core]
 	editor = gvim -f
 	quotepath = false
-	excludesfile = /Users/mgrubb/.gitignore
+	excludesfile = <%= File.join(ENV['HOME'], '.gitignore') %>
 
 [help]
 	autocorrect = 0
@@ -74,7 +74,7 @@
 	cmd = /usr/bin/iman
 
 [browser "macosx-default-browser"]
-	cmd = /Users/mgrubb/bin/open-url
+	cmd = <%= File.join(ENV['HOME'], 'bin', 'open-url') %>
 
 [branch]
 	autosetupmerge = true

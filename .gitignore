@@ -1,3 +1,4 @@
 vim/cache
 vim/.netrwhist
 tags
+*.private

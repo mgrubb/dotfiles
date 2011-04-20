@@ -168,4 +168,3 @@ noremap <F2> :NERDTreeToggle<CR>
 nnoremap <silent> ,yr :YRShow<CR>
 let perl_fold = 1
 let perl_nofold_packages = 1
-nnoremap <C-]> <Esc>:exe "ptjump " . expand("<cword>")<Esc>

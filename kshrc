@@ -59,3 +59,8 @@ posgrep() { grep -iIrn "$1" "$(posd)"; }
 
 #alias cl="/Developer/ccl/dppccl'
 #alias slime='screen -S slime -t 0 -T xterm -s "-/usr/bin/ksh"'
+
+cd() {
+	command cd "$@"
+	eval `$HOME/.ksh/shell-env`
+}

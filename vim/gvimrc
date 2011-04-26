@@ -63,7 +63,7 @@ highlight Visual guibg=grey80
 set guifont=AnonymousPro:h16
 set linespace=4
 " colorscheme myvibrantink
-colorscheme symfony
+colorscheme mg_symfony
 
 " hide the toolbar by default
 set guioptions-=T

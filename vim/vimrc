@@ -1,27 +1,45 @@
 " Maintainer:	Michael Grubb
-" Last change:	
-"
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
-endif
+
+" This must be first, because it changes other options as a side effect.
+set nocompatible
+""""""""""""""""""""""""""""""""""""""""""""" Global variables
+let g:project_lib_prefix = 'lib'
+let g:rails_level=3
+let g:tskelTitle = "Test Title"
+let perl_fold = 1
+let perl_nofold_packages = 1
+
+" Disable some less often used plugins
+let g:loaded_dbext = 1
+let g:loaded_rails = 1
+let g:loaded_autotmpl = 1
+
+" Configure Tasklist
+let g:tlWindowPosition = 1
+let g:cvWindowPosition = 1
+
+" Define default modeline for template expansion
+let g:defmodeline = "sw=4:ts=4:ai"
+
+" Tell the shell syntax file that I prefer kornshell
+let g:is_kornshell = 1
 
 " Invoke pathogen.
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
-" Use Vim settings, rather then Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
+" Include my custom utiltities and vimwiki configs
+runtime vimwikirc.vim
+runtime utils.vim
 
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
 
-set history=250		" keep 250 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set showmode	" show insert mode
-set incsearch		" do incremental searching
+
+set backspace=indent,eol,start " allow backspacing over everything in insert mode
+set history=250                " keep 250 lines of command line history
+set ruler                      " show the cursor position all the time
+set showcmd                    " display incomplete commands
+set showmode                   " show insert mode
+set incsearch                  " do incremental searching
 set tabstop=4
 set shiftwidth=4
 set noexpandtab
@@ -30,13 +48,10 @@ set showbreak==>
 set display+=lastline
 set lcs=tab:\|\ 
 set viminfo='0,<0,s0,h
+set vb
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
-
-" This is an alternative that also works in block mode, but the deleted
-" text is lost and it only works for putting the current register.
-"vnoremap p "_dp
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -45,43 +60,49 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
+" Autocommands
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
-
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
   filetype plugin indent on
-
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
   au!
 
-  " For all text files set 'textwidth' to 79 characters.
-"  autocmd FileType text setlocal textwidth=79
+" For all text files set 'textwidth' to 79 characters.
+" autocmd FileType text setlocal textwidth=79
 
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  autocmd BufReadPost *
+" When editing a file, always jump to the last known cursor position.
+" Don't do it when the position is invalid or when inside an event handler
+" (happens when dropping a file on gvim).
+autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
 
   augroup END
 
-  autocmd BufRead *.lyx set syntax=lyx foldmethod=syntax foldcolumn=3
-  autocmd BufRead *.lyx syntax sync fromstart
+	autocmd BufRead *.lyx set syntax=lyx foldmethod=syntax foldcolumn=3
+	autocmd BufRead *.lyx syntax sync fromstart
 
-else
+	autocmd User Rails*			Rabbrev lta link_to\ :action\ =>\ 
+	autocmd User Rails*			Rabbrev	ltc link_to\ :controller\ =>\ 
+	autocmd filetype lisp,scheme,art setlocal equalprg=~/bin/lispindent.lisp
 
-  set autoindent		" always set autoindenting on
+	au BufRead,BufNewFile * let b:defmodeline = g:defmodeline
+	au BufRead,BufNewFile *.rb let b:defmodeline = "sw=2:ts=2:ai"
+
+	au BufWritePre */secaudit/tests/*.t :Renumber
+
+	augroup filetypedetect
+		au BufRead,BufNewFile *.wiki nmap <Leader>d a= <C-R>=strftime("%a %e %b %Y")<CR> =<Esc>
+		au BufRead,BufNewFile *.wiki echo "autocmd for wiki"
+		au BufRead,BufNewFile */secaudit/*/*.{conf,audit} set ft=apachestyle
+	augroup END
 
 endif " has("autocmd")
 
+set autoindent		" always set autoindenting on
 
-let g:rails_level=3
 
 function BigWindowProject(files)
 	set lines=50
@@ -93,78 +114,16 @@ function BigWindowProject(files)
 	endif
 
 endfunction
-
 command -nargs=? -complete=file BWProject :call BigWindowProject('<args>')
 
-" set verbose=9
-autocmd User Rails*			Rabbrev lta link_to\ :action\ =>\ 
-autocmd User Rails*			Rabbrev	ltc link_to\ :controller\ =>\ 
-
-autocmd filetype lisp,scheme,art setlocal equalprg=~/bin/lispindent.lisp
-
-" if ! has("gui_running")
-" 	colorscheme vividchalk
-" endif
-
-" command for C header files
-"augroup CShorts
-"	autocmd!
-"	autocmd BufNewFile,BufRead *.h map ,h yy2pki#ifndef j0i#define oji#endif /* A */
-"augroup END
-
-" command for AsciiDoc files
-augroup ADocHelp
-	autocmd!
-augroup END
-
+""""""""""""""""""""""""""""""""""""""""""""" Key mappings
 map <F5> {!}fmt
-
-" Disable some less often used plugins
-let g:loaded_dbext = 1
-let g:loaded_rails = 1
-let g:loaded_autotmpl = 1
-
-" Configure Tasklist
-let g:tlWindowPosition = 1
-let g:cvWindowPosition = 1
-
-let g:defmodeline = "sw=4:ts=4:ai"
-au BufRead,BufNewFile * let b:defmodeline = g:defmodeline
-au BufRead,BufNewFile *.rb let b:defmodeline = "sw=2:ts=2:ai"
-let g:project_lib_prefix = 'lib'
-
-au BufWritePre */secaudit/tests/*.t :Renumber
-
-augroup filetypedetect
-	au BufRead,BufNewFile *.wiki nmap <Leader>d a= <C-R>=strftime("%a %e %b %Y")<CR> =<Esc>
-	au BufRead,BufNewFile *.wiki echo "autocmd for wiki"
-	au BufRead,BufNewFile */secaudit/*/*.{conf,audit} set ft=apachestyle
-augroup END
-
-" jptemplate config
-let g:jpTemplateDir = $HOME.'/.vim/templates'
-"let g:jpTemplateKey = '<C-Tab>'
-let g:jpTemplateKey = '<D-2>'
-let g:jpTemplateDateFormat = '%Y-%m-%d'
-let g:tpv = {
-			\   'author': "Michael Grubb",
-			\	 'email': "devel@dailyvoid.com",
-			\ 'modeline': "tw=79:sw=4:ts=4:ai",
-			\	 'shell': "/bin/sh" }
-
-let g:jpTemplateDefaults = g:tpv
-let g:is_kornshell = 1
-" configure vimwiki
 
 " make Ctrl-Y wordwise
 inoremap <C-Y> <Esc>kl"zyiWj"zpa
-runtime vimwikirc.vim
-runtime utils.vim
-let g:tskelTitle = "Test Title"
+
 " leave cursor at at position of edit
 map . .`[
-set vb
 noremap <F2> :NERDTreeToggle<CR>
 nnoremap <silent> ,yr :YRShow<CR>
-let perl_fold = 1
-let perl_nofold_packages = 1
+nnoremap <F6> :GundoToggle<CR>

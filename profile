@@ -1,7 +1,7 @@
 #!/bin/ksh
 
 ## Setup path information for Fink
-test -r /sw/bin/init.sh && . /sw/bin/init.sh
+#test -r /sw/bin/init.sh && . /sw/bin/init.sh
 test -r $HOME/.ksh/functions.ksh && . $HOME/.ksh/functions.ksh
 test -r $HOME/.ksh/bashmarks.sh && . $HOME/.ksh/bashmarks.sh
 

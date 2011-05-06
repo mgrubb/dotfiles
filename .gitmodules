@@ -55,3 +55,6 @@
 [submodule "vim/bundle/tabular"]
 	path = vim/bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
+[submodule "vim/bundle/increment"]
+	path = vim/bundle/increment
+	url = git@github.com:mgrubb/increment.vim.git

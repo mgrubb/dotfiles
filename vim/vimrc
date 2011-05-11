@@ -32,8 +32,6 @@ call pathogen#helptags()
 runtime vimwikirc.vim
 runtime utils.vim
 
-
-
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set history=250                " keep 250 lines of command line history
 set ruler                      " show the cursor position all the time
@@ -83,7 +81,6 @@ autocmd BufReadPost *
 
 	autocmd BufRead *.lyx set syntax=lyx foldmethod=syntax foldcolumn=3
 	autocmd BufRead *.lyx syntax sync fromstart
-
 	autocmd User Rails*			Rabbrev lta link_to\ :action\ =>\ 
 	autocmd User Rails*			Rabbrev	ltc link_to\ :controller\ =>\ 
 	autocmd filetype lisp,scheme,art setlocal equalprg=~/bin/lispindent.lisp

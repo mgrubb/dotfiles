@@ -64,3 +64,8 @@ cd() {
 	command cd "$@"
 	eval `$HOME/.ksh/shell-env`
 }
+
+gitc() {
+	git config -f "$HOME/.dotfiles/gitconfig.erb" "$@" && \
+	(cd $HOME/.dotfiles; rake file[gitconfig.erb,force])
+}

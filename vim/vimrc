@@ -47,6 +47,8 @@ set display+=lastline
 set lcs=tab:\|\ 
 set viminfo='0,<0,s0,h
 set vb
+" Add Git status information to statusline
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -72,7 +74,7 @@ if has("autocmd")
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
 " (happens when dropping a file on gvim).
-autocmd BufReadPost *
+	autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
@@ -81,16 +83,21 @@ autocmd BufReadPost *
 
 	autocmd BufRead *.lyx set syntax=lyx foldmethod=syntax foldcolumn=3
 	autocmd BufRead *.lyx syntax sync fromstart
+
 	autocmd User Rails*			Rabbrev lta link_to\ :action\ =>\ 
 	autocmd User Rails*			Rabbrev	ltc link_to\ :controller\ =>\ 
+
 	autocmd filetype lisp,scheme,art setlocal equalprg=~/bin/lispindent.lisp
 
-	au BufRead,BufNewFile * let b:defmodeline = g:defmodeline
-	au BufRead,BufNewFile *.rb let b:defmodeline = "sw=2:ts=2:ai"
+	autocmd BufRead,BufNewFile * let b:defmodeline = g:defmodeline
+	autocmd BufRead,BufNewFile *.rb let b:defmodeline = "sw=2:ts=2:ai"
 
-	au BufWritePre */secaudit/tests/*.t :Renumber
+	autocmd BufWritePre */secaudit/tests/*.t :Renumber
 
+	" Remove fugitive buffers when they get hidden
+	autocmd BufReadPost fugitive://* set bufhidden=delete
 	augroup filetypedetect
+		au BufRead,BufNewFile Pakefile setf Pakefile
 		au BufRead,BufNewFile *.wiki nmap <Leader>d a= <C-R>=strftime("%a %e %b %Y")<CR> =<Esc>
 		au BufRead,BufNewFile *.wiki echo "autocmd for wiki"
 		au BufRead,BufNewFile */secaudit/*/*.{conf,audit} set ft=apachestyle

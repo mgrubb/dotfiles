@@ -9,7 +9,7 @@ LANG=en_US.UTF-8
 ENV="$HOME/.kshrc"
 
 NEW_DIR="$HOME/Library/NewFiles"
-LSCOLORS="bxgxfxdxcxegedabagacad"
+LSCOLORS="bxfxgxdxcxahaeabagacad"
 CLICOLOR="y"
 VIM_APP_DIR=/Applications
 VIM_PATH="$VIM_APP_DIR/MacVim.app/Contents/MacOS/Vim"

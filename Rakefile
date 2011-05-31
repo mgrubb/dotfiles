@@ -43,7 +43,7 @@ end
 
 desc "Install all dot files"
 task :install do
-	Dir['*'].each do |file|
+	Dir['*', 'vim/*vimrc'].each do |file|
 		args = Rake::TaskArguments.new(%w[file_name], [file])
 		Rake::Task[:file].execute(args)
 	end
@@ -51,8 +51,8 @@ end
 
 def destfile(file, fqp = false)
 	return fqp \
-		? File.join(fqp ? ENV['HOME'] : "", ".#{file.sub('.erb', '')}") \
-		: ".#{file.sub('.erb', '')}"
+		? File.join(fqp ? ENV['HOME'] : "", ".#{File.basename(file).sub('.erb', '')}") \
+		: ".#{File.basename(file).sub('.erb', '')}"
 end
 
 def replace_file(src,dest)
@@ -69,7 +69,7 @@ def link_file(src,dest)
 		end
 	else
 		puts "linking #{destbase}" unless ENV["DOTFILES_HUSH"]
-		system %Q{ln -s "$PWD/#{src}" "$HOME/.#{src}"}
+		system %Q{ln -s "$PWD/#{src}" "$HOME/#{destbase}"}
 	end
 end
 

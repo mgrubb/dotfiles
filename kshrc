@@ -25,7 +25,8 @@ GVIM='/usr/bin/gvim'
 #alias vi="$GVIM --remote-silent"
 #alias vk="$GVIM --remote-wait-silent $HOME/.kshrc && . $HOME/.kshrc"
 #alias vp="$GVIM --remote-wait-silent $HOME/.profile && . $HOME/.profile"
-alias vi="$GVIM -c 'au VimLeave * call system(\"open -a iTerm\")'"
+#alias vi="$GVIM -c 'au VimLeave * call system(\"open -a iTerm\")'"
+alias vi="$GVIM"
 alias vi!='/usr/bin/vi'
 alias vim='/usr/bin/vim'
 alias vk="$GVIM -f $HOME/.kshrc && . $HOME/.kshrc"
@@ -68,4 +69,20 @@ cd() {
 gitc() {
 	git config -f "$HOME/.dotfiles/gitconfig.erb" "$@" && \
 	(cd $HOME/.dotfiles; rake file[gitconfig.erb,force])
+}
+
+typeset -A Keytable
+trap 'eval "${Keytable[${.sh.edcar}]}"' KEYBD
+function keybind # key [action]
+{
+	typeset key=$(print -f "%q" "$2")
+	case $# in
+		2)	Keytable[$1]=' .sh.edchar=${.sh.edmode}'"$key"
+			;;
+		1)	unset Keytable[$1]
+			;;
+		*)	print -u2 "Usage: $0 key [action]"
+			return 2 # usage errors return 2 by default
+			;;
+	esac
 }

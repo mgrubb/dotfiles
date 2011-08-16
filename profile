@@ -29,6 +29,7 @@ export PAGER HISTSIZE CVSROOT CVS_RSH NEW_DIR DISTDIR NOTESDIR NEWACED PATH
 
 #PATH="$HOME/bin:$ECL_HOME/bin:$PATH"
 add_to_path "$ECL_HOME/bin"
+add_to_path "/opt/local/bin:/opt/local/sbin"
 add_to_path "$HOME/bin"
 
 
@@ -42,11 +43,11 @@ export JAVA_HOME
 PRIVATE_ASDF_INSTALL_DIR="$HOME/Library/Lisp/"
 export PRIVATE_ASDF_INSTALL_DIR
 
-_HOSTNAME="$(hostname -s)"
-PS1=$'\e[34m$_HOSTNAME $PWD\e[0m≻ '
+HOSTNAME="$(uname -n)"
+PS1=$'\e[34m${HOSTNAME%%.*} ${PWD/#$HOME/\\~}\e[0m≻ '
 case "$TERM" in
 	dtterm|xterm*)
-		PS1="$PS1"$'\e]2;$USER@$_HOSTNAME $PWD\cg'
+		PS1="$PS1"$'\e]2;$USER@${HOSTNAME%%.*} ${PWD/#$HOME/\\~}\cg'
 		;;
 esac
 

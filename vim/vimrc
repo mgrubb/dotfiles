@@ -11,7 +11,7 @@ let perl_nofold_packages = 1
 
 " Disable some less often used plugins
 let g:loaded_dbext = 1
-let g:loaded_rails = 1
+" let g:loaded_rails = 1
 let g:loaded_autotmpl = 1
 
 " Configure Tasklist
@@ -88,6 +88,8 @@ if has("autocmd")
 	autocmd User Rails*			Rabbrev	ltc link_to\ :controller\ =>\ 
 
 	autocmd filetype lisp,scheme,art setlocal equalprg=~/bin/lispindent.lisp
+	autocmd filetype lisp,scheme,art inoremap ( ()i
+	autocmd filetype lisp,scheme,art inoremap ) la
 
 	autocmd BufRead,BufNewFile * let b:defmodeline = g:defmodeline
 	autocmd BufRead,BufNewFile *.rb let b:defmodeline = "sw=2:ts=2:ai"

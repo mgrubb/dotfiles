@@ -24,7 +24,7 @@
 	url = git://github.com/tpope/vim-surround.git
 [submodule "vim/bundle/comments"]
 	path = vim/bundle/comments
-	url = git://github.com/h13ronim/vim-comments.git
+	url = git://github.com/mgrubb/vim-comments.git
 [submodule "vim/bundle/project"]
 	path = vim/bundle/project
 	url = git://github.com/shemerey/vim-project.git

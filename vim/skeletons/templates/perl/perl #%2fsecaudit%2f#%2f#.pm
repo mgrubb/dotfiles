@@ -3,7 +3,7 @@
 package <+PERL PKG+>;
 use SAT::Class
 	version => 3.14159,
-	base => 'SAT::Base'
+	base => 'SAT::Base',
 	debug => 0,
 ;
 

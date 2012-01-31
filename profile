@@ -1,7 +1,5 @@
 #!/bin/ksh
 
-## Setup path information for Fink
-#test -r /sw/bin/init.sh && . /sw/bin/init.sh
 test -r $HOME/.ksh/functions.ksh && . $HOME/.ksh/functions.ksh
 test -r $HOME/.ksh/bashmarks.sh && . $HOME/.ksh/bashmarks.sh
 
@@ -24,14 +22,18 @@ CVS_RSH="ssh"
 VIMINIT="let b:fromterminal=1|so $HOME/.vimrc"
 NOTESDIR="$HOME/Documents/Notes"
 ECL_HOME="$HOME/Library/ecl"
+RBENV_ROOT="$HOME/.rbenv"
+PG90DATA="/opt/local/var/db/postgresql90/defaultdb"
+PGDATA="$PG90DATA"
 export ENV LSCOLORS CLICOLOR VIM_APP_DIR VIM_PATH EDITOR VISUAL FCEDITOR
 export PAGER HISTSIZE CVSROOT CVS_RSH NEW_DIR DISTDIR NOTESDIR NEWACED PATH
+export PGDATA
 
 #PATH="$HOME/bin:$ECL_HOME/bin:$PATH"
 add_to_path "$ECL_HOME/bin"
 add_to_path "/opt/local/bin:/opt/local/sbin"
 add_to_path "$HOME/bin"
-
+add_to_path "$RBENV_ROOT/bin"
 
 #CCL_DEFAULT_DIRECTORY="/Developer/ccl"
 #PLTSCHEME_DIRECTORY="/opt/pltscheme"
@@ -52,3 +54,23 @@ case "$TERM" in
 esac
 
 cleanup_functions
+
+# initialize rbenv
+#eval "$(rbenv init -)"
+
+export PATH="/Users/mgrubb/.rbenv/shims:${PATH}"
+rbenv rehash 2>/dev/null
+function rbenv {
+  command="$1"
+  if [ "$#" -gt 0 ]; then
+    shift
+  fi
+
+  case "$command" in
+  shell)
+    eval `rbenv "sh-$command" "$@"`;;
+  *)
+    command rbenv "$command" "$@";;
+  esac
+}
+

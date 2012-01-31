@@ -14,6 +14,7 @@ esac
 
 # Launch apps
 alias sg='launch /Developer/Applications/SmartGit.app'
+alias pl='perl'
 
 # Screen stuff
 alias sd='screen -d'
@@ -28,11 +29,12 @@ GVIM='/usr/bin/gvim'
 #alias vi="$GVIM -c 'au VimLeave * call system(\"open -a iTerm\")'"
 alias vi="$GVIM"
 alias vi!='/usr/bin/vi'
+alias svi='sudo -e'
 alias vim='/usr/bin/vim'
 alias vk="$GVIM -f $HOME/.kshrc && . $HOME/.kshrc"
 alias vp="$GVIM -f $HOME/.profile && . $HOME/.profile"
-alias vip="$GVIM -O "
 alias vit="$GVIM -p "
+alias vis="$GVIM -O "
 alias sk=". $HOME/.kshrc"
 alias sp=". $HOME/.profile"
 alias vv="vi $HOME/.vimrc"
@@ -43,12 +45,14 @@ alias ls='ls -hF'
 alias ll='ls -al'
 alias project='gvim +BWProject'
 alias eject='disktool -e disk1'
+alias z='dtrx'
 
 alias port='sudo port'
 alias cpan='sudo cpan'
 alias gem='sudo gem'
 alias cdf='cd "$(posd)"'
 alias man='/usr/bin/iman'
+alias xml='/opt/local/bin/xmlstarlet'
 
 growl() { echo -en $'\e]9;'${*}'\007' ; }
 
@@ -63,6 +67,7 @@ posgrep() { grep -iIrn "$1" "$(posd)"; }
 
 cd() {
 	command cd "$@"
+	echo -ne "\033]50;CurrentDir=`pwd`\a"
 	eval `$HOME/.ksh/shell-env`
 }
 

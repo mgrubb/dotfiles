@@ -49,7 +49,7 @@ alias z='dtrx'
 
 alias port='sudo port'
 alias cpan='sudo cpan'
-alias gem='sudo gem'
+#alias gem='sudo gem'
 alias cdf='cd "$(posd)"'
 alias man='/usr/bin/iman'
 alias xml='/opt/local/bin/xmlstarlet'

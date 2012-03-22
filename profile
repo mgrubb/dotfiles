@@ -56,21 +56,5 @@ esac
 cleanup_functions
 
 # initialize rbenv
-#eval "$(rbenv init -)"
-
-export PATH="/Users/mgrubb/.rbenv/shims:${PATH}"
-rbenv rehash 2>/dev/null
-function rbenv {
-  command="$1"
-  if [ "$#" -gt 0 ]; then
-    shift
-  fi
-
-  case "$command" in
-  shell)
-    eval `rbenv "sh-$command" "$@"`;;
-  *)
-    command rbenv "$command" "$@";;
-  esac
-}
+eval "$(rbenv init -)"
 

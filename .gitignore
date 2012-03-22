@@ -1,5 +1,7 @@
 vim/spell
 vim/cache
+vim/tmp
+vim/undo
 vim/.netrwhist
 tags
 *.private

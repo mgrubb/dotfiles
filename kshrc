@@ -15,6 +15,7 @@ esac
 # Launch apps
 alias sg='launch /Developer/Applications/SmartGit.app'
 alias pl='perl'
+alias rk='rake'
 
 # Screen stuff
 alias sd='screen -d'

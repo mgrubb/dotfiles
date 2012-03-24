@@ -8,11 +8,12 @@
 let ruby_operators = 1
 
 " Whitespace errors can be highlighted by defining "ruby_space_errors":
-let ruby_space_errors = 1
+"let ruby_space_errors = 1
 " This will highlight trailing whitespace and tabs preceded by a space character
 " as errors.  This can be refined by defining "ruby_no_trail_space_error" and
 " "ruby_no_tab_space_error" which will ignore trailing whitespace and tabs after
 " spaces respectively.
+let ruby_no_trail_space_error = 1
 
 function! RunTests(filename)
     " Write the file and run tests for the given filename

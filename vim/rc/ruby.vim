@@ -64,7 +64,7 @@ function! RunCucumber(filename)
   exec ":!cucumber -r features " . a:filename
 endfunction
 
-map <leader>t :call RunTestFile()<cr>
+" map <leader>t :call RunTestFile()<cr>
 map <leader>T :call RunNearestTest()<cr>
 map <leader>a :call RunTests('spec')<cr>
 map <leader>c :call RunCucumber(@%)<cr>

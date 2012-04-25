@@ -17,7 +17,7 @@ set guioptions=ceg
 " Hide mouse when typing
 set mousehide
 
-set guifont=AnonymousPro:h16
+set guifont=AnonymousProForPowerline:h16
 
 " I like a little more linespace with this font
 set linespace=1

@@ -70,6 +70,9 @@
 [submodule "vim/bundle/dbext"]
 	path = vim/bundle/dbext
 	url = git://github.com/edsono/vim-dbext.git
-[submodule "vim/bundle/powerline"]
-	path = vim/bundle/powerline
-	url = https://github.com/Lokaltog/vim-powerline.git
+[submodule "vim/bundle/molokai"]
+	path = vim/bundle/molokai
+	url = https://github.com/tomasr/molokai.git
+[submodule "vim/bundle/scratch"]
+	path = vim/bundle/scratch
+	url = https://github.com/vim-scripts/scratch.vim.git

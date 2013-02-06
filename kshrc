@@ -52,8 +52,14 @@ alias port='sudo port'
 alias cpan='sudo cpan'
 #alias gem='sudo gem'
 alias cdf='cd "$(posd)"'
-alias man='/usr/bin/iman'
+#alias man='/usr/bin/iman'
 alias xml='/opt/local/bin/xmlstarlet'
+
+man() {
+  man=$1
+  sect=$(echo $2 | sed -e 's/\(.\{1,\}\)/(\1)/')
+  open "dash://manpages:$man$sect"
+}
 
 growl() { echo -en $'\e]9;'${*}'\007' ; }
 
@@ -66,8 +72,16 @@ posgrep() { grep -iIrn "$1" "$(posd)"; }
 #alias cl="/Developer/ccl/dppccl'
 #alias slime='screen -S slime -t 0 -T xterm -s "-/usr/bin/ksh"'
 
-cd() {
-	command cd "$@"
+function cd {
+  # support bashmarks in-line
+  typeset isbkm=$(p ${1%%/*})
+  if [ $# -gt 1 -o -d "$1" -o "$1" = "-" -o -z "$isbkm" ]
+  then
+    command cd "$@"
+  else
+    g "$@"
+  fi
+
 	echo -ne "\033]50;CurrentDir=`pwd`\a"
 	eval `$HOME/.ksh/shell-env`
 }
@@ -78,7 +92,7 @@ gitc() {
 }
 
 typeset -A Keytable
-trap 'eval "${Keytable[${.sh.edcar}]}"' KEYBD
+trap 'eval "${Keytable[${.sh.edchar}]}"' KEYBD
 function keybind # key [action]
 {
 	typeset key=$(print -f "%q" "$2")

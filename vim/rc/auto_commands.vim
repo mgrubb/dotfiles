@@ -30,8 +30,22 @@ augroup ft_fugitive
   autocmd BufReadPost fugitive://* set bufhidden=delete
 augroup END
 
-augroup filetypedetect
+" Set foldmethod to marker for vimscript files
+augroup ft_vim
+  autocmd!
+  autocmd FileType vim setlocal foldmethod=marker
+augroup END
+
+" Make sure noexpandtab is set for pyton even though I HATE python
+augroup ft_python
+  autocmd!
+  autocmd FileType python setlocal noexpandtab
+augroup END
+
+" Misc filetype hooks ----------------------------------------------------{{{
+augroup ft_misc
+  autocmd!
   autocmd BufRead,BufNewFile Pakefile setf Pakefile
   autocmd BufRead,BufNewFile *.wiki nmap <Leader>d a= <C-R>=strftime("%a %e %b %Y")<CR> =<Esc>
 augroup END
-
+" }}}

@@ -3,5 +3,9 @@ vim/cache
 vim/tmp
 vim/undo
 vim/.netrwhist
+lein/indices
+lein/self-installs
+lein/credentials.clj
+lein/*.gpg
 tags
 *.private

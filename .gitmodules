@@ -31,9 +31,6 @@
 [submodule "vim/bundle/wiki"]
 	path = vim/bundle/wiki
 	url = git://github.com/vim-scripts/vimwiki.git
-[submodule "vim/bundle/yankring"]
-	path = vim/bundle/yankring
-	url = git://github.com/chrismetcalf/vim-yankring.git
 [submodule "vim/bundle/snipmate."]
 	path = vim/bundle/snipmate.
 	url = git://github.com/msanders/snipmate.vim.git
@@ -79,3 +76,21 @@
 [submodule "vim/bundle/powerline"]
 	path = vim/bundle/powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
+[submodule "vim/bundle/scriptease"]
+	path = vim/bundle/scriptease
+	url = git://github.com/tpope/vim-scriptease.git
+[submodule "vim/bundle/VimClojure"]
+	path = vim/bundle/VimClojure
+	url = git://github.com/vim-scripts/VimClojure.git
+[submodule "vim/bundle/foreplay"]
+	path = vim/bundle/foreplay
+	url = git://github.com/tpope/vim-foreplay.git
+[submodule "vim/bundle/YankRing"]
+	path = vim/bundle/YankRing
+	url = git://github.com/vim-scripts/YankRing.vim.git
+[submodule "vim/bundle/ruler"]
+	path = vim/bundle/ruler
+	url = git://github.com/vim-scripts/ruler.vim.git
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git

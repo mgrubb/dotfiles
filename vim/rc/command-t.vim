@@ -3,4 +3,4 @@ noremap <leader>o <Esc>:CommandT<CR>
 noremap <leader>O <Esc>:CommandTFlush<CR>
 noremap <leader>b <Esc>:CommandTBuffer<CR>
 
-:set wildignore+=*.o,*.obj,.git,tmp/**/*,*.log,*.rbc
+:set wildignore+=*.o,*.obj,*.class,.git,tmp/**/*,*.log,*.rbc

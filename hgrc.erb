@@ -1,6 +1,13 @@
 <%= include_private %>
+[extensions]
+hgext.extdiff =
+
+[extdiff]
+cmd.ksdiff = /usr/local/bin/ksdiff
+opts.ksdiff = --changeset --wait --filelist
+
 [ui]
-merge = kdiff3
+merge = Kaleidoscope
 
 [extensions]
 mq =
@@ -12,6 +19,8 @@ qnew = -U
 plain = True
 
 [merge-tools]
+Kaleidoscope.executable = /usr/local/bin/ksdiff
+Kaleidoscope.args = --merge --output $output --base $base -- $local $other
 sourcetreemerge.gui=False
 sourcetreebulkmerge.gui=False
 sourcetreemerge.binary=False

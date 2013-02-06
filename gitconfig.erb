@@ -18,6 +18,16 @@
 
 	tags = tag -l -n1
 
+  # Legit aliases
+	switch = !legit switch \"$@\"
+	branches = !legit branches
+	sprout = !legit sprout \"$@\"
+	unpublish = !legit unpublish \"$@\"
+	harvest = !legit harvest \"$@\"
+	sync = !legit sync \"$@\"
+	publish = !legit publish \"$@\"
+	graft = !legit graft \"$@\"
+
 [gui]
 
 [color]
@@ -66,7 +76,7 @@
 
 [help]
 	autocorrect = 0
-	format = man
+	format = web
 
 [man]
 	viewer = iman

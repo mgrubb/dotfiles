@@ -88,9 +88,9 @@
 [submodule "vim/bundle/YankRing"]
 	path = vim/bundle/YankRing
 	url = git://github.com/vim-scripts/YankRing.vim.git
-[submodule "vim/bundle/ruler"]
-	path = vim/bundle/ruler
-	url = git://github.com/vim-scripts/ruler.vim.git
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
+[submodule "vim/bundle/ruler"]
+	path = vim/bundle/ruler
+	url = git://github.com/mgrubb/ruler.vim.git

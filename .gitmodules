@@ -52,9 +52,6 @@
 [submodule "vim/bundle/increment"]
 	path = vim/bundle/increment
 	url = git@github.com:mgrubb/increment.vim.git
-[submodule "vim/bundle/unimpaired"]
-	path = vim/bundle/unimpaired
-	url = git://github.com/tpope/vim-unimpaired.git
 [submodule "vim/bundle/bundler"]
 	path = vim/bundle/bundler
 	url = git://github.com/tpope/vim-bundler.git

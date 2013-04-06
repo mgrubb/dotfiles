@@ -9,7 +9,7 @@ set directory=~/.vim/tmp/
 " Viminfo file
 " Don't remember marks, registers, or hlsearch, and move viminfo into the tmp
 " dir
-set viminfo='0,<0,s0,h,n~/.vim/tmp/.viminfo
+set viminfo='20,<0,s0,h,n~/.vim/tmp/.viminfo
 
 if has("gui_macvim")
   " undoing even after closing the file

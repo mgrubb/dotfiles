@@ -14,6 +14,7 @@ let g:cvWindowPosition = 1
 " Default modeline for template expansion
 let g:defmodeline = "sw=2:ts=2:sts=2:et:ai"
 
+let g:syntastic_c_checkers = ['make', 'sparse', 'ycm']
 
 " Ack prog
-let g:ackprg = 'ag --nogroup --nocolor --column'
+"let g:ackprg = 'ag --nogroup --nocolor --column'

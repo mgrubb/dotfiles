@@ -7,5 +7,6 @@ lein/indices
 lein/self-installs
 lein/credentials.clj
 lein/*.gpg
+lein/repl-history
 tags
 *.private

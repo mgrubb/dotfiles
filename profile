@@ -4,6 +4,7 @@ test -r $HOME/.ksh/functions.ksh && . $HOME/.ksh/functions.ksh
 test -r $HOME/.ksh/bashmarks.sh && . $HOME/.ksh/bashmarks.sh
 
 LANG=en_US.UTF-8
+LC_ALL=en_US.UTF-8
 ENV="$HOME/.kshrc"
 
 NEW_DIR="$HOME/Library/NewFiles"
@@ -27,13 +28,14 @@ PG90DATA="/opt/local/var/db/postgresql90/defaultdb"
 PGDATA="$PG90DATA"
 export ENV LSCOLORS CLICOLOR VIM_APP_DIR VIM_PATH EDITOR VISUAL FCEDITOR
 export PAGER HISTSIZE CVSROOT CVS_RSH NEW_DIR DISTDIR NOTESDIR NEWACED PATH
-export PGDATA
+export PGDATA LANG LC_ALL
 
 #PATH="$HOME/bin:$ECL_HOME/bin:$PATH"
 add_to_path "$ECL_HOME/bin"
 add_to_path "/opt/local/bin:/opt/local/sbin"
 add_to_path "$HOME/bin"
 add_to_path "$RBENV_ROOT/bin"
+#add_to_path "/usr/texbin"
 
 #CCL_DEFAULT_DIRECTORY="/Developer/ccl"
 #PLTSCHEME_DIRECTORY="/opt/pltscheme"

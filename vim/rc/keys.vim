@@ -20,3 +20,5 @@ map . .`[
 
 noremap <F2> :NERDTreeToggle<CR>
 noremap <F3> :GundoToggle<CR>
+
+noremap <leader>d :call SearchDash()<CR>

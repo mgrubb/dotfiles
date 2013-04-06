@@ -79,9 +79,6 @@
 [submodule "vim/bundle/VimClojure"]
 	path = vim/bundle/VimClojure
 	url = git://github.com/vim-scripts/VimClojure.git
-[submodule "vim/bundle/foreplay"]
-	path = vim/bundle/foreplay
-	url = git://github.com/tpope/vim-foreplay.git
 [submodule "vim/bundle/YankRing"]
 	path = vim/bundle/YankRing
 	url = git://github.com/vim-scripts/YankRing.vim.git
@@ -91,3 +88,15 @@
 [submodule "vim/bundle/ruler"]
 	path = vim/bundle/ruler
 	url = git://github.com/mgrubb/ruler.vim.git
+[submodule "vim/bundle/transpose-words"]
+	path = vim/bundle/transpose-words
+	url = git://github.com/Raimondi/vim-transpose-words.git
+[submodule "vim/bundle/fireplace"]
+	path = vim/bundle/fireplace
+	url = git://github.com/tpope/vim-fireplace.git
+[submodule "vim/bundle/classpath"]
+	path = vim/bundle/classpath
+	url = git://github.com/tpope/vim-classpath.git
+[submodule "vim/bundle/clojure-static"]
+	path = vim/bundle/clojure-static
+	url = git://github.com/guns/vim-clojure-static.git

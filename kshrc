@@ -48,12 +48,17 @@ alias project='gvim +BWProject'
 alias eject='disktool -e disk1'
 alias z='dtrx'
 
+# Use hub extension to git
+alias git='hub'
+
 alias port='sudo port'
 alias cpan='sudo cpan'
 #alias gem='sudo gem'
 alias cdf='cd "$(posd)"'
 #alias man='/usr/bin/iman'
 alias xml='/opt/local/bin/xmlstarlet'
+alias be='bundle exec'
+alias guard='be guard'
 
 man() {
   man=$1

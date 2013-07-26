@@ -9,4 +9,8 @@ lein/credentials.clj
 lein/*.gpg
 lein/repl-history
 tags
+msmtprc
+mutt/*
+offlineimaprc
+osx_mat.sh
 *.private

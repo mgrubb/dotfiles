@@ -49,10 +49,20 @@ PRIVATE_ASDF_INSTALL_DIR="$HOME/Library/Lisp/"
 export PRIVATE_ASDF_INSTALL_DIR
 
 HOSTNAME="$(uname -n)"
-PS1=$'\e[34m${HOSTNAME%%.*} ${PWD/#$HOME/\\~}\e[0m≻ '
+#PS1=$'\e[34m${HOSTNAME%%.*} ${PWD/#$HOME/\\~}\e[0m≻ '
+pspwd() {
+  if [ -n "$KSH_VERSION" ]
+  then
+    echo "${PWD/#$HOME/\~}"
+  else
+    echo "${PWD/#$HOME/~}"
+  fi
+}
+
+PS1=$'\e[34m${HOSTNAME%%.*} $(pspwd)\e[0m≻ '
 case "$TERM" in
 	dtterm|xterm*)
-		PS1="$PS1"$'\e]2;$USER@${HOSTNAME%%.*} ${PWD/#$HOME/\\~}\cg'
+    PS1="$PS1"$'\e]2;$USER@${HOSTNAME%%.*} $(pspwd)\cg'
 		;;
 esac
 

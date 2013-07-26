@@ -6,7 +6,7 @@ case $- in
 esac
 
 set -o vi
-set -o viraw
+[ -n "$KSH_VERSION" ] && set -o viraw
 
 case $TERM in
 	screen) export TERM=dtterm ;;
@@ -44,26 +44,26 @@ alias vg="vi $HOME/.gvimrc"
 # File management
 alias ls='ls -hF'
 alias ll='ls -al'
-alias project='gvim +BWProject'
+alias project='gvim +BWProject '
 alias eject='disktool -e disk1'
-alias z='dtrx'
+alias z='dtrx '
 
 # Use hub extension to git
-alias git='hub'
+alias git='hub '
 
-alias port='sudo port'
-alias cpan='sudo cpan'
+alias port='sudo port '
+alias cpan='sudo cpan '
 #alias gem='sudo gem'
 alias cdf='cd "$(posd)"'
 #alias man='/usr/bin/iman'
 alias xml='/opt/local/bin/xmlstarlet'
-alias be='bundle exec'
-alias guard='be guard'
+alias be='bundle exec '
+alias guard='bundle exec guard'
 
 man() {
   man=$1
   sect=$(echo $2 | sed -e 's/\(.\{1,\}\)/(\1)/')
-  open "dash://manpages:$man$sect"
+  open "dash://man:$man$sect"
 }
 
 growl() { echo -en $'\e]9;'${*}'\007' ; }
@@ -96,6 +96,8 @@ gitc() {
 	(cd $HOME/.dotfiles; rake file[gitconfig.erb,force])
 }
 
+if [ -n "$KSH_VERSION" ]
+then
 typeset -A Keytable
 trap 'eval "${Keytable[${.sh.edchar}]}"' KEYBD
 function keybind # key [action]
@@ -111,3 +113,4 @@ function keybind # key [action]
 			;;
 	esac
 }
+fi

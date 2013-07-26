@@ -25,3 +25,4 @@ source ~/.vim/rc/powerline.vim
 source ~/.vim/rc/auto_commands.vim
 source ~/.vim/rc/syntastic.vim
 source ~/.vim/rc/zencoding.vim
+source ~/.vim/rc/cf3.vim

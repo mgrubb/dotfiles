@@ -73,9 +73,6 @@
 [submodule "vim/bundle/scriptease"]
 	path = vim/bundle/scriptease
 	url = git://github.com/tpope/vim-scriptease.git
-[submodule "vim/bundle/VimClojure"]
-	path = vim/bundle/VimClojure
-	url = git://github.com/vim-scripts/VimClojure.git
 [submodule "vim/bundle/YankRing"]
 	path = vim/bundle/YankRing
 	url = git://github.com/vim-scripts/YankRing.vim.git
@@ -97,3 +94,6 @@
 [submodule "vim/bundle/clojure-static"]
 	path = vim/bundle/clojure-static
 	url = git://github.com/guns/vim-clojure-static.git
+[submodule "vim/bundle/cf3"]
+	path = vim/bundle/cf3
+	url = https://github.com/neilhwatson/vim_cf3.git

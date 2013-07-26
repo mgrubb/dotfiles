@@ -8,6 +8,6 @@
              [org.conjure/lein-conjure "1.0.0"]]
    :injections [(defn classpath [] (seq (-> (ClassLoader/getSystemClassLoader) (.getURLs))))
                 (defn show-classpath [] (doseq [url (classpath)] (println (.getFile url))))]
-   :dependencies [[com.stuartsierra/lazytest "1.2.3"]
+   :dependencies [; [com.stuartsierra/lazytest "1.2.3"]
                   [clj-stacktrace "0.2.5"]]
-   :repositories [["stuart" "http://stuartsierra.com/maven2"]]}}
+   }}

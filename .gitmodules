@@ -1,99 +1,99 @@
-[submodule "vim/bundle/zencoding"]
+[submodule "zencoding"]
 	path = vim/bundle/zencoding
 	url = git://github.com/mattn/zencoding-vim.git
-[submodule "vim/bundle/fugitive"]
+[submodule "fugitive"]
 	path = vim/bundle/fugitive
 	url = git://github.com/tpope/vim-fugitive.git
-[submodule "vim/bundle/tskeleton"]
+[submodule "tskeleton"]
 	path = vim/bundle/tskeleton
 	url = git://github.com/tomtom/tskeleton_vim.git
-[submodule "vim/bundle/tlib"]
+[submodule "tlib"]
 	path = vim/bundle/tlib
 	url = git://github.com/tomtom/tlib_vim.git
-[submodule "vim/bundle/nerdtree"]
+[submodule "nerdtree"]
 	path = vim/bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
-[submodule "vim/bundle/matchit"]
+[submodule "matchit"]
 	path = vim/bundle/matchit
 	url = git://github.com/vim-scripts/matchit.zip.git
-[submodule "vim/bundle/rails"]
+[submodule "rails"]
 	path = vim/bundle/rails
 	url = git://github.com/tpope/vim-rails.git
-[submodule "vim/bundle/surround"]
+[submodule "surround"]
 	path = vim/bundle/surround
 	url = git://github.com/tpope/vim-surround.git
-[submodule "vim/bundle/project"]
+[submodule "project"]
 	path = vim/bundle/project
 	url = git://github.com/shemerey/vim-project.git
-[submodule "vim/bundle/ttags"]
+[submodule "ttags"]
 	path = vim/bundle/ttags
 	url = git://github.com/tomtom/ttags_vim.git
-[submodule "vim/bundle/wiki"]
+[submodule "wiki"]
 	path = vim/bundle/wiki
 	url = git://github.com/vim-scripts/vimwiki.git
-[submodule "vim/bundle/snipmate."]
+[submodule "snipmate."]
 	path = vim/bundle/snipmate.
 	url = git://github.com/msanders/snipmate.vim.git
-[submodule "vim/bundle/ack"]
+[submodule "ack"]
 	path = vim/bundle/ack
 	url = git://github.com/mileszs/ack.vim.git
-[submodule "vim/bundle/gist"]
+[submodule "gist"]
 	path = vim/bundle/gist
 	url = git://github.com/mattn/gist-vim.git
-[submodule "vim/bundle/gundo"]
+[submodule "gundo"]
 	path = vim/bundle/gundo
 	url = git://github.com/sjl/gundo.vim.git
-[submodule "vim/bundle/tabular"]
+[submodule "tabular"]
 	path = vim/bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
-[submodule "vim/bundle/increment"]
+[submodule "increment"]
 	path = vim/bundle/increment
 	url = git@github.com:mgrubb/increment.vim.git
-[submodule "vim/bundle/bundler"]
+[submodule "bundler"]
 	path = vim/bundle/bundler
 	url = git://github.com/tpope/vim-bundler.git
-[submodule "vim/bundle/command-t"]
+[submodule "command-t"]
 	path = vim/bundle/command-t
 	url = https://github.com/wincent/Command-T.git
-[submodule "vim/bundle/nerdcommenter"]
+[submodule "nerdcommenter"]
 	path = vim/bundle/nerdcommenter
 	url = git://github.com/scrooloose/nerdcommenter.git
-[submodule "vim/bundle/dbext"]
+[submodule "dbext"]
 	path = vim/bundle/dbext
 	url = git://github.com/edsono/vim-dbext.git
-[submodule "vim/bundle/molokai"]
+[submodule "molokai"]
 	path = vim/bundle/molokai
 	url = https://github.com/tomasr/molokai.git
-[submodule "vim/bundle/scratch"]
+[submodule "scratch"]
 	path = vim/bundle/scratch
 	url = https://github.com/vim-scripts/scratch.vim.git
-[submodule "vim/bundle/powerline"]
+[submodule "powerline"]
 	path = vim/bundle/powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
-[submodule "vim/bundle/scriptease"]
+[submodule "scriptease"]
 	path = vim/bundle/scriptease
 	url = git://github.com/tpope/vim-scriptease.git
-[submodule "vim/bundle/YankRing"]
+[submodule "YankRing"]
 	path = vim/bundle/YankRing
 	url = git://github.com/vim-scripts/YankRing.vim.git
-[submodule "vim/bundle/syntastic"]
+[submodule "syntastic"]
 	path = vim/bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
-[submodule "vim/bundle/ruler"]
+[submodule "ruler"]
 	path = vim/bundle/ruler
 	url = git://github.com/mgrubb/ruler.vim.git
-[submodule "vim/bundle/transpose-words"]
+[submodule "transpose-words"]
 	path = vim/bundle/transpose-words
 	url = git://github.com/Raimondi/vim-transpose-words.git
-[submodule "vim/bundle/fireplace"]
+[submodule "fireplace"]
 	path = vim/bundle/fireplace
 	url = git://github.com/tpope/vim-fireplace.git
-[submodule "vim/bundle/classpath"]
+[submodule "classpath"]
 	path = vim/bundle/classpath
 	url = git://github.com/tpope/vim-classpath.git
-[submodule "vim/bundle/clojure-static"]
+[submodule "clojure-static"]
 	path = vim/bundle/clojure-static
 	url = git://github.com/guns/vim-clojure-static.git
-[submodule "vim/bundle/cf3"]
+[submodule "cf3"]
 	path = vim/bundle/cf3
 	url = https://github.com/neilhwatson/vim_cf3.git

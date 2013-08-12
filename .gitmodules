@@ -13,9 +13,6 @@
 [submodule "nerdtree"]
 	path = vim/bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
-[submodule "matchit"]
-	path = vim/bundle/matchit
-	url = git://github.com/vim-scripts/matchit.zip.git
 [submodule "rails"]
 	path = vim/bundle/rails
 	url = git://github.com/tpope/vim-rails.git
@@ -25,9 +22,6 @@
 [submodule "project"]
 	path = vim/bundle/project
 	url = git://github.com/shemerey/vim-project.git
-[submodule "ttags"]
-	path = vim/bundle/ttags
-	url = git://github.com/tomtom/ttags_vim.git
 [submodule "wiki"]
 	path = vim/bundle/wiki
 	url = git://github.com/vim-scripts/vimwiki.git
@@ -49,9 +43,6 @@
 [submodule "increment"]
 	path = vim/bundle/increment
 	url = git@github.com:mgrubb/increment.vim.git
-[submodule "bundler"]
-	path = vim/bundle/bundler
-	url = git://github.com/tpope/vim-bundler.git
 [submodule "command-t"]
 	path = vim/bundle/command-t
 	url = https://github.com/wincent/Command-T.git
@@ -73,9 +64,6 @@
 [submodule "scriptease"]
 	path = vim/bundle/scriptease
 	url = git://github.com/tpope/vim-scriptease.git
-[submodule "YankRing"]
-	path = vim/bundle/YankRing
-	url = git://github.com/vim-scripts/YankRing.vim.git
 [submodule "syntastic"]
 	path = vim/bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
@@ -97,3 +85,6 @@
 [submodule "cf3"]
 	path = vim/bundle/cf3
 	url = https://github.com/neilhwatson/vim_cf3.git
+[submodule "repeat"]
+	path = vim/bundle/repeat
+	url = https://github.com/tpope/vim-repeat.git

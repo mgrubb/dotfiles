@@ -101,6 +101,17 @@ function! s:make_perl_package_from_path(filename, libdir)
 	return join(pkg_paths[libpos : ], "::")
 endfunction
 
+function! s:make_jvm_package_from_path(filename, libdir)
+    let pkg_paths = tlib#file#Split(a:filename)
+    let libpos = index(pkg_paths, a:libdir) + 1
+    return join(pkg_paths[libpos : ], ".")
+endfunction
+
+function! TSkeleton_JVM_PKG()
+    let prefix = tskeleton#GetVar('project_lib_prefix')
+    return s:make_jvm_package_from_path(tskeleton#EvalInDestBuffer('expand("%:p:r")'), prefix)
+endfunction
+
 function! TSkeleton_PERL_PKG()
 	let prefix = tskeleton#GetVar('project_lib_prefix')
 	return s:make_perl_package_from_path(tskeleton#EvalInDestBuffer('expand("%:p:r")'), prefix)
@@ -108,6 +119,38 @@ endfunction
 
 function! TSkeleton_TIMESTAMP()
 	return strftime("%Y-%m-%d %H:%M")
+endfunction
+
+function! TSkeleton_ATWORK()
+    if ( InWorkSrcDir(tskeleton#EvalInDestBuffer('expand("%:p")')) )
+        return "ATWORK"
+    else
+        return ""
+    endif
+endfunction
+
+function! WorkSrcDir()
+    let wsd = resolve(expand('~/.worksrc'))
+    if ( isdirectory(wsd) )
+        return wsd
+    elseif ( filereadable(wsd) )
+        let dir = readfile(wsd)[0]
+        if ( strlen(dir) != 0 && isdirectory(dir) )
+            return resolve(dir)
+        endif
+    else
+        echoerr "Unable to determine work source directory."
+        return ""
+    endif
+endfunction
+
+function! InWorkSrcDir(dir)
+    let wsd = WorkSrcDir() . '/'
+    if ( matchend(resolve(a:dir), wsd) < 0 )
+        return 0
+    else
+        return 1
+    endif
 endfunction
 
 " vim:tw=79:sw=4:ts=4:ai:

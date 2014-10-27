@@ -20,7 +20,7 @@ source ~/.vim/rc/indent.vim
 source ~/.vim/rc/visual.vim
 source ~/.vim/rc/keys.vim
 source ~/.vim/rc/vimwikirc.vim
-source ~/.vim/rc/powerline.vim
+source ~/.vim/rc/airline.vim
 source ~/.vim/rc/auto_commands.vim
 source ~/.vim/rc/syntastic.vim
 source ~/.vim/rc/zencoding.vim

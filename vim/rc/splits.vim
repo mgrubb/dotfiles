@@ -1,9 +1,3 @@
-" Directly switch between open splitted windows
-map <C-J> <C-W>j
-map <C-H> <C-W>h
-map <C-L> <C-W>l
-map <C-K> <C-W>k
-
 " The size of opened splits by :Vex and :Sex
 "let g:netrw_winsize=50
 

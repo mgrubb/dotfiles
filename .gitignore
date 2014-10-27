@@ -3,6 +3,7 @@ vim/cache
 vim/tmp
 vim/undo
 vim/.netrwhist
+lein/.lein-repl-history
 lein/indices
 lein/self-installs
 lein/credentials.clj

@@ -17,7 +17,7 @@ NEWACED="/usr/bin/gvim -p -f"
 VISUAL="$EDITOR"
 FCEDITOR="$EDITOR"
 PAGER="/usr/bin/less"
-LESS="-R"
+LESS="-R -F"
 HISTSIZE=4096
 CVSROOT="$HOME/.cvsroot"
 CVS_RSH="ssh"
@@ -31,11 +31,19 @@ export ENV LSCOLORS CLICOLOR VIM_APP_DIR VIM_PATH EDITOR VISUAL FCEDITOR
 export PAGER HISTSIZE CVSROOT CVS_RSH NEW_DIR DISTDIR NOTESDIR NEWACED PATH
 export PGDATA LANG LC_ALL LESS
 
+if [ -e ${HOME}/.gpg-agent-info ]
+then
+  . ${HOME}/.gpg-agent-info
+  export GPG_AGENT_INFO
+fi
+
 #PATH="$HOME/bin:$ECL_HOME/bin:$PATH"
-add_to_path "$ECL_HOME/bin"
+#add_to_path "$ECL_HOME/bin"
+
 add_to_path "/opt/local/bin:/opt/local/sbin"
 add_to_path "$HOME/bin"
 add_to_path "$RBENV_ROOT/bin"
+
 #add_to_path "/usr/texbin"
 
 #CCL_DEFAULT_DIRECTORY="/Developer/ccl"
@@ -54,6 +62,7 @@ pspwd() {
   if [ -n "$KSH_VERSION" ]
   then
     echo "${PWD/#$HOME/\~}"
+    #[ "${TERM_PROGRAM}" = "iTerm.app" ] && echo -ne "\033]50;CurrentDir=`pwd`\a"
   else
     echo "${PWD/#$HOME/~}"
   fi
@@ -70,4 +79,3 @@ cleanup_functions
 
 # initialize rbenv
 eval "$(rbenv init -)"
-

@@ -21,6 +21,8 @@ alias rk='rake'
 alias sd='screen -d'
 alias sr='screen -r -A -O'
 alias sl='screen -list'
+alias tls='tmux list-sessions'
+alias tla='tmux attach'
 
 # Vi stuff
 GVIM='/usr/bin/gvim'
@@ -45,7 +47,7 @@ alias vg="vi $HOME/.gvimrc"
 alias ls='ls -hF'
 alias ll='ls -al'
 alias project='gvim +BWProject '
-alias eject='disktool -e disk1'
+alias eject='diskutil eject'
 alias z='dtrx '
 
 # Use hub extension to git
@@ -59,41 +61,58 @@ alias cdf='cd "$(posd)"'
 alias xml='/opt/local/bin/xmlstarlet'
 alias be='bundle exec '
 alias guard='bundle exec guard'
+alias vssh='vagrant ssh'
+alias cd='cdenh '
 
-man() {
+function man {
   man=$1
   sect=$(echo $2 | sed -e 's/\(.\{1,\}\)/(\1)/')
   open "dash://man:$man$sect"
 }
 
-growl() { echo -en $'\e]9;'${*}'\007' ; }
+function growl { echo -en $'\e]9;'${*}'\007' ; }
 
 # posfind: search the directory frontmost in the Finder
-posfind() { find "$(posd)" -name "$@"; }
+function posfind { find "$(posd)" -name "$@"; }
 
 # posgrep: grep the directory frontmost in the Finder
-posgrep() { grep -iIrn "$1" "$(posd)"; }
+function posgrep { grep -iIrn "$1" "$(posd)"; }
 
 #alias cl="/Developer/ccl/dppccl'
 #alias slime='screen -S slime -t 0 -T xterm -s "-/usr/bin/ksh"'
 
-function cd {
+function cdenh {
   # support bashmarks in-line
   typeset isbkm=$(p ${1%%/*})
   if [ $# -gt 1 -o -d "$1" -o "$1" = "-" -o -z "$isbkm" ]
   then
-    command cd "$@"
+    command 'cd' "$@"
   else
     g "$@"
   fi
-
-	echo -ne "\033]50;CurrentDir=`pwd`\a"
 	eval `$HOME/.ksh/shell-env`
 }
 
-gitc() {
+function gitc {
 	git config -f "$HOME/.dotfiles/gitconfig.erb" "$@" && \
 	(cd $HOME/.dotfiles; rake file[gitconfig.erb,force])
+}
+
+function trepl {
+  tmux new-session -d 'lein repl' \; detach
+}
+
+# Run a lein repl in tmux if at the root of a clojure project
+# so long as there isn't an existing repl.
+function vil {
+  if [[ -e ./project.clj && \
+    ! -e ./target/repl-port && \
+    ! -e ./target/repl/repl-port && \
+    ! -e ./.nrepl-port ]]
+  then
+    trepl
+  fi
+  vi $@
 }
 
 if [ -n "$KSH_VERSION" ]
@@ -114,3 +133,4 @@ function keybind # key [action]
 	esac
 }
 fi
+

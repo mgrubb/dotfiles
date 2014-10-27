@@ -10,12 +10,11 @@ set synmaxcol=2048
 " No wrapping by default
 set nowrap
 
-set showbreak==>
-
 " Keep a few lines above and below current line
 set scrolloff=4
 
 set display=lastline
 
 " Set list option
-set listchars=tab:\|\
+set listchars=tab:▸\ ,extends:❯,precedes:❮,nbsp:␣
+set showbreak=↪

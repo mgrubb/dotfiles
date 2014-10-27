@@ -57,23 +57,24 @@ PRIVATE_ASDF_INSTALL_DIR="$HOME/Library/Lisp/"
 export PRIVATE_ASDF_INSTALL_DIR
 
 HOSTNAME="$(uname -n)"
-#PS1=$'\e[34m${HOSTNAME%%.*} ${PWD/#$HOME/\\~}\e[0m≻ '
 pspwd() {
+  typeset cwd=""
   if [ -n "$KSH_VERSION" ]
   then
-    echo "${PWD/#$HOME/\~}"
-    #[ "${TERM_PROGRAM}" = "iTerm.app" ] && echo -ne "\033]50;CurrentDir=`pwd`\a"
+     cwd="${PWD/#$HOME/\~}"
+
   else
-    echo "${PWD/#$HOME/~}"
+    cwd="${PWD/#$HOME/~}"
   fi
+  case "$TERM" in
+    dtterm|xterm*)
+      echo -ne "\033]2;${cwd}\007"
+      ;;
+  esac
+  echo -n "$cwd"
 }
 
 PS1=$'\e[34m${HOSTNAME%%.*} $(pspwd)\e[0m≻ '
-case "$TERM" in
-	dtterm|xterm*)
-    PS1="$PS1"$'\e]2;$USER@${HOSTNAME%%.*} $(pspwd)\cg'
-		;;
-esac
 
 cleanup_functions
 

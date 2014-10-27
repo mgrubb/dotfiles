@@ -1,0 +1,5 @@
+### Author: <+AUTHOR+>
+### File: <+FILE PATH+>
+### Created: <+TIMESTAMP+>
+### Copyright: © <+call:strftime('%Y')+>, <+COMPANY+>.  All rights reserved.
+### Description: <+NOTE+>

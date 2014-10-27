@@ -1,6 +1,7 @@
 let g:project_lib_prefix = 'lib'
 let g:rails_level = 3
 let g:tskelTitle = "Test Title"
+let g:tskelNewBufferIsDirty = 0
 
 " Configure syntax options
 let perl_fold = 1
@@ -18,3 +19,6 @@ let g:syntastic_c_checkers = ['make', 'sparse', 'ycm']
 
 " Ack prog
 "let g:ackprg = 'ag --nogroup --nocolor --column'
+
+" Disable folding unless I want it
+set nofoldenable

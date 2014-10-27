@@ -22,3 +22,17 @@ noremap <F2> :NERDTreeToggle<CR>
 noremap <F3> :GundoToggle<CR>
 
 noremap <leader>d :call SearchDash()<CR>
+
+" w!!: Writes using sudo
+cnoremap w!! w !sudo tee % >/dev/null
+
+
+" Increment/Decrement
+nnoremap + <C-a>
+nnoremap - <C-x>
+
+" Cycle through splits
+nnoremap <C-x> <C-w>w
+
+" Ctrl-w: Delete previous word, create undo point
+inoremap <C-w> <C-g>u<C-w>

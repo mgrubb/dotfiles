@@ -25,11 +25,12 @@ alias tls='tmux list-sessions'
 alias tla='tmux attach'
 
 # Vi stuff
-GVIM='/usr/bin/gvim'
+GVIM='/usr/local/bin/mvim'
 #alias vi="$GVIM --remote-silent"
 #alias vk="$GVIM --remote-wait-silent $HOME/.kshrc && . $HOME/.kshrc"
 #alias vp="$GVIM --remote-wait-silent $HOME/.profile && . $HOME/.profile"
 #alias vi="$GVIM -c 'au VimLeave * call system(\"open -a iTerm\")'"
+alias gvim="$GVIM"
 alias vi="$GVIM"
 alias vi!='/usr/bin/vi'
 alias svi='sudo -e'

@@ -97,3 +97,6 @@
 [submodule "go"]
 	path = vim/bundle/go
 	url = https://github.com/fatih/vim-go.git
+[submodule "livedown"]
+	path = vim/bundle/livedown
+	url = https://github.com/shime/vim-livedown.git

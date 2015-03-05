@@ -1,4 +1,7 @@
 ;<%= include_private %>
+[credential]
+  helper = osxkeychain
+
 [alias]
 	ci = commit
 	co = checkout
@@ -27,6 +30,7 @@
 	sync = !legit sync \"$@\"
 	publish = !legit publish \"$@\"
 	graft = !legit graft \"$@\"
+  lg = <%= %q{log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --} %>
 
 [gui]
 
@@ -69,7 +73,7 @@
 [gui]
 
 [core]
-	editor = gvim -f
+	editor = mvim -f
 	quotepath = false
 	excludesfile = <%= File.join(ENV['HOME'], '.gitignore') %>
 	autocrlf = input

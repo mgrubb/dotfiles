@@ -100,3 +100,6 @@
 [submodule "livedown"]
 	path = vim/bundle/livedown
 	url = https://github.com/shime/vim-livedown.git
+[submodule "paredit"]
+	path = vim/bundle/paredit
+	url = https://github.com/kovisoft/paredit.git

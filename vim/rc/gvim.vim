@@ -37,4 +37,7 @@ if has("gui_macvim")
 
   " Available when using experimental renderer in macvim
   " set transparency=15
+
+  "set default screen size
+  set lines=45 columns=120
 end

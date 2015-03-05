@@ -25,3 +25,5 @@ source ~/.vim/rc/auto_commands.vim
 source ~/.vim/rc/syntastic.vim
 source ~/.vim/rc/zencoding.vim
 source ~/.vim/rc/cf3.vim
+source ~/.vim/rc/binary.vim
+source ~/.vim/rc/livedown.vim

@@ -16,6 +16,7 @@ esac
 alias sg='launch /Developer/Applications/SmartGit.app'
 alias pl='perl'
 alias rk='rake'
+alias plu='plutil -convert xml1 -o -'
 
 # Screen stuff
 alias sd='screen -d'
@@ -63,13 +64,13 @@ alias xml='/opt/local/bin/xmlstarlet'
 alias be='bundle exec '
 alias guard='bundle exec guard'
 alias vssh='vagrant ssh'
-alias cd='cdenh '
+alias cd='cdenh'
 
-function man {
-  man=$1
-  sect=$(echo $2 | sed -e 's/\(.\{1,\}\)/(\1)/')
-  open "dash://man:$man$sect"
-}
+#function man {
+#  man=$1
+#  sect=$(echo $2 | sed -e 's/\(.\{1,\}\)/(\1)/')
+#  open "dash://man:$man$sect"
+#}
 
 function growl { echo -en $'\e]9;'${*}'\007' ; }
 
@@ -91,7 +92,7 @@ function cdenh {
   else
     g "$@"
   fi
-	eval `$HOME/.ksh/shell-env`
+	#eval `$HOME/.ksh/shell-env`
 }
 
 function gitc {
@@ -99,39 +100,62 @@ function gitc {
 	(cd $HOME/.dotfiles; rake file[gitconfig.erb,force])
 }
 
+function canREPL {
+  if [[ -e ./project.clj && \
+      ! -e ./target/repl-port && \
+      ! -e ./target/repl/repl-port && \
+      ! -e ./.nrepl-port ]]
+  then
+    return 0
+  else
+    echo "Not in a clojure project or REPL session already exists." >&2
+    return 1
+  fi
+}
+
 function trepl {
-  tmux new-session -d 'lein repl' \; detach
+  if canREPL
+  then
+    tmux new-session -d 'lein repl'
+  fi
 }
 
 # Run a lein repl in tmux if at the root of a clojure project
 # so long as there isn't an existing repl.
 function vil {
-  if [[ -e ./project.clj && \
-    ! -e ./target/repl-port && \
-    ! -e ./target/repl/repl-port && \
-    ! -e ./.nrepl-port ]]
+  if canREPL
   then
     trepl
+    vi $@
   fi
-  vi $@
 }
 
-if [ -n "$KSH_VERSION" ]
-then
-typeset -A Keytable
-trap 'eval "${Keytable[${.sh.edchar}]}"' KEYBD
-function keybind # key [action]
-{
-	typeset key=$(print -f "%q" "$2")
-	case $# in
-		2)	Keytable[$1]=' .sh.edchar=${.sh.edmode}'"$key"
-			;;
-		1)	unset Keytable[$1]
-			;;
-		*)	print -u2 "Usage: $0 key [action]"
-			return 2 # usage errors return 2 by default
-			;;
-	esac
+function repl {
+  if canREPL
+  then
+    lein repl
+  fi
 }
-fi
+
+function flushdns {
+  sudo discoveryutil udnsflushcaches
+}
+#if [ -n "$KSH_VERSION" ]
+#then
+#typeset -A Keytable
+#trap 'eval "${Keytable[${.sh.edchar}]}"' KEYBD
+#function keybind # key [action]
+#{
+#	typeset key=$(print -f "%q" "$2")
+#	case $# in
+#		2)	Keytable[$1]=' .sh.edchar=${.sh.edmode}'"$key"
+#			;;
+#		1)	unset Keytable[$1]
+#			;;
+#		*)	print -u2 "Usage: $0 key [action]"
+#			return 2 # usage errors return 2 by default
+#			;;
+#	esac
+#}
+#fi
 

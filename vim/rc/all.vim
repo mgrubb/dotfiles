@@ -27,3 +27,4 @@ source ~/.vim/rc/zencoding.vim
 source ~/.vim/rc/cf3.vim
 source ~/.vim/rc/binary.vim
 source ~/.vim/rc/livedown.vim
+source ~/.vim/rc/paredit.vim

@@ -64,7 +64,7 @@ alias xml='/opt/local/bin/xmlstarlet'
 alias be='bundle exec '
 alias guard='bundle exec guard'
 alias vssh='vagrant ssh'
-alias cd='cdenh'
+#alias cd='cdenh'
 
 #function man {
 #  man=$1
@@ -83,17 +83,17 @@ function posgrep { grep -iIrn "$1" "$(posd)"; }
 #alias cl="/Developer/ccl/dppccl'
 #alias slime='screen -S slime -t 0 -T xterm -s "-/usr/bin/ksh"'
 
-function cdenh {
-  # support bashmarks in-line
-  typeset isbkm=$(p ${1%%/*})
-  if [ $# -gt 1 -o -d "$1" -o "$1" = "-" -o -z "$isbkm" ]
-  then
-    command 'cd' "$@"
-  else
-    g "$@"
-  fi
-	#eval `$HOME/.ksh/shell-env`
-}
+#function cdenh {
+#  # support bashmarks in-line
+#  typeset isbkm=$(p ${1%%/*})
+#  if [ $# -gt 1 -o -d "$1" -o "$1" = "-" -o -z "$isbkm" ]
+#  then
+#    command 'cd' "$@"
+#  else
+#    g "$@"
+#  fi
+#	#eval `$HOME/.ksh/shell-env`
+#}
 
 function gitc {
 	git config -f "$HOME/.dotfiles/gitconfig.erb" "$@" && \

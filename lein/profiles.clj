@@ -1,9 +1,10 @@
 {:user
   {:plugins [[lein-localrepo "LATEST"]
+             [lein-pprint "LATEST"]
              [lein-clean-m2 "LATEST"]
              [lein-gitify "LATEST"]
              [lein-outdated "LATEST"]
-             [lein-midje "LATEST"]
+             [lein-midje "3.1.5-SNAPSHOT"]
              [lein-kibit "LATEST"]
              [lein-difftest "LATEST"]
              [lein-try "LATEST"]
@@ -13,7 +14,9 @@
              [lein-bikeshed "LATEST"]
              [org.conjure/lein-conjure "LATEST"]
              [s3-wagon-private "LATEST"]
-             [mvxcvi/whidbey "LATEST"]]
+             [mvxcvi/whidbey "LATEST"]
+             [lein-fore-prob "0.1.2"]
+             [gargamel "LATEST"]]
    :puget-options {:width 132}
    :aliases {"slamhound" ["run" "-m" "slam.hound"]}
    :signing {:gpg-key "8D0BFAB7"}

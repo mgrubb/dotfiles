@@ -52,9 +52,6 @@
 [submodule "scratch"]
 	path = vim/bundle/scratch
 	url = https://github.com/vim-scripts/scratch.vim.git
-[submodule "scriptease"]
-	path = vim/bundle/scriptease
-	url = git://github.com/tpope/vim-scriptease.git
 [submodule "syntastic"]
 	path = vim/bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git

@@ -49,9 +49,6 @@
 [submodule "molokai"]
 	path = vim/bundle/molokai
 	url = https://github.com/tomasr/molokai.git
-[submodule "scratch"]
-	path = vim/bundle/scratch
-	url = https://github.com/vim-scripts/scratch.vim.git
 [submodule "syntastic"]
 	path = vim/bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git

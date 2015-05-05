@@ -1,7 +1,6 @@
 #!/bin/ksh
-
 test -r $HOME/.ksh/functions.ksh && . $HOME/.ksh/functions.ksh
-test -r $HOME/.ksh/bashmarks.sh && . $HOME/.ksh/bashmarks.sh
+#test -r $HOME/.ksh/bashmarks.sh && . $HOME/.ksh/bashmarks.sh
 
 LANG=en_US.UTF-8
 LC_ALL=en_US.UTF-8
@@ -9,6 +8,8 @@ ENV="$HOME/.kshrc"
 
 NEW_DIR="$HOME/Library/NewFiles"
 LSCOLORS="bxfxgxdxcxahaeabagacad"
+# Same as above, use http://geoff.greer.fm/lscolors/ to convert
+LS_COLORS="di=31;40:ln=35;40:so=36;40:pi=33;40:ex=32;40:bd=0;47:cd=0;44:su=0;41:sg=0;46:tw=0;42:ow=0;43:"
 CLICOLOR="y"
 VIM_APP_DIR=/Applications
 VIM_PATH="$VIM_APP_DIR/MacVim.app/Contents/MacOS/Vim"
@@ -30,7 +31,7 @@ PGDATA="$PG90DATA"
 HOMEBREW_CASK_OPTS="--appdir=/Applications"
 GOPATH="$HOME/Source/go"
 F5VPN_USETOKEN=y
-export ENV LSCOLORS CLICOLOR VIM_APP_DIR VIM_PATH EDITOR VISUAL FCEDITOR
+export ENV LSCOLORS LS_COLORS CLICOLOR VIM_APP_DIR VIM_PATH EDITOR VISUAL FCEDITOR
 export PAGER HISTSIZE CVSROOT CVS_RSH NEW_DIR DISTDIR NOTESDIR NEWACED PATH
 export PGDATA LANG LC_ALL LESS RBENV_ROOT HOMEBREW_CASK_OPTS GOPATH F5VPN_USETOKEN
 

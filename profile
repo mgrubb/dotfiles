@@ -1,20 +1,19 @@
 #!/bin/ksh
-test -r $HOME/.ksh/functions.ksh && . $HOME/.ksh/functions.ksh
+test -r "$HOME/.ksh/functions.ksh" && . "$HOME/.ksh/functions.ksh"
+test -r "$HOME/.ksh/lscolors.sh" && . "$HOME/.ksh/lscolors.sh"
+test -r "${HOME}/.ksh/prompt.ksh" && . "${HOME}/.ksh/prompt.ksh"
 #test -r $HOME/.ksh/bashmarks.sh && . $HOME/.ksh/bashmarks.sh
+
 
 LANG=en_US.UTF-8
 LC_ALL=en_US.UTF-8
 ENV="$HOME/.kshrc"
 
 NEW_DIR="$HOME/Library/NewFiles"
-LSCOLORS="bxfxgxdxcxahaeabagacad"
-# Same as above, use http://geoff.greer.fm/lscolors/ to convert
-LS_COLORS="di=31;40:ln=35;40:so=36;40:pi=33;40:ex=32;40:bd=0;47:cd=0;44:su=0;41:sg=0;46:tw=0;42:ow=0;43:"
 CLICOLOR="y"
 VIM_APP_DIR=/Applications
 VIM_PATH="$VIM_APP_DIR/MacVim.app/Contents/MacOS/Vim"
 EDITOR="$HOME/bin/vimedit.sh"
-NEWACED="/usr/local/bin/mvim -p -f"
 VISUAL="$EDITOR"
 FCEDITOR="$EDITOR"
 PAGER="/usr/bin/less"
@@ -31,16 +30,23 @@ PGDATA="$PG90DATA"
 HOMEBREW_CASK_OPTS="--appdir=/Applications"
 GOPATH="$HOME/Source/go"
 F5VPN_USETOKEN=y
-export ENV LSCOLORS LS_COLORS CLICOLOR VIM_APP_DIR VIM_PATH EDITOR VISUAL FCEDITOR
-export PAGER HISTSIZE CVSROOT CVS_RSH NEW_DIR DISTDIR NOTESDIR NEWACED PATH
-export PGDATA LANG LC_ALL LESS RBENV_ROOT HOMEBREW_CASK_OPTS GOPATH F5VPN_USETOKEN
+FINDBUGS_HOME=/usr/local/Cellar/findbugs/3.0.1/libexec
+JBOSS_HOME=/usr/local/opt/wildfly-as/libexec
+MANPATH=/usr/local/opt/erlang/lib/erlang/man:${MANPATH}
+PARROT_HOME=/opt/parrot
+export ENV CLICOLOR VIM_APP_DIR VIM_PATH EDITOR VISUAL FCEDITOR
+export PAGER HISTSIZE CVSROOT CVS_RSH NEW_DIR DISTDIR NOTESDIR PATH
+export PGDATA LANG LC_ALL LESS RBENV_ROOT HOMEBREW_CASK_OPTS GOPATH F5VPN_USETOKEN FINDBUGS_HOME
+export JBOSS_HOME MANPATH
 
-if [ -e ${HOME}/.gpg-agent-info ]
+if [ -e "${HOME}/.gpg-agent-info" ]
 then
-  . ${HOME}/.gpg-agent-info
+  . "${HOME}/.gpg-agent-info"
   export GPG_AGENT_INFO
 fi
 
+add_to_path "${PARROT_HOME}/bin"
+add_to_path "${JBOSS_HOME}/bin"
 add_to_path "$GOPATH/bin"
 add_to_path "$HOME/bin"
 
@@ -56,7 +62,7 @@ export PRIVATE_ASDF_INSTALL_DIR
 
 HOSTNAME="$(uname -n)"
 
-. ${HOME}/.ksh/prompt.ksh
+
 cleanup_functions
 
 # initialize rbenv

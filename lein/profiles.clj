@@ -15,8 +15,10 @@
              [org.conjure/lein-conjure "LATEST"]
              [s3-wagon-private "LATEST"]
              [mvxcvi/whidbey "LATEST"]
-             [lein-fore-prob "0.1.2"]
-             [gargamel "LATEST"]]
+             [lein-fore-prob "LATEST"]
+             [gargamel "LATEST"]
+             [cider/cider-nrepl "LATEST"]
+             [lein-cljfmt "LATEST"]]
    :puget-options {:width 132}
    :aliases {"slamhound" ["run" "-m" "slam.hound"]}
    :signing {:gpg-key "8D0BFAB7"}

@@ -23,7 +23,7 @@ is_in_git() {
 
 git_branch() {
   typeset branch=$(git branch | grep '^\*' | awk '{print $2}')
-  if [ "$branch" = "(detached" ]; then branch="(detached)" ; fi
+  if [ "$branch" = "(detached" -o "$branch" = "(HEAD" ]; then branch="(detached)" ; fi
   printf "$branch"
 }
 

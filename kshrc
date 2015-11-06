@@ -16,7 +16,7 @@ esac
 alias sg='launch /Developer/Applications/SmartGit.app'
 alias pl='perl'
 alias rk='rake'
-alias plu='plutil -convert xml1 -o -'
+alias plcat='plutil -convert xml1 -o -'
 
 # Screen stuff
 alias sd='screen -d'

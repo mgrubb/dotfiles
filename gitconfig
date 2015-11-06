@@ -1,4 +1,6 @@
-;<%= include_private %>
+[include]
+  path = ~/.dotfiles/gitconfig.private
+
 [credential]
   helper = osxkeychain
 
@@ -31,7 +33,8 @@
 	sync = !legit sync \"$@\"
 	publish = !legit publish \"$@\"
 	graft = !legit graft \"$@\"
-  lg = <%= %q{log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --} %>
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+
 
 [gui]
 
@@ -76,7 +79,7 @@
 [core]
 	editor = mvim -f
 	quotepath = false
-	excludesfile = <%= File.join(ENV['HOME'], '.gitignore') %>
+	excludesfile = ~/.gitignore
 	autocrlf = input
 
 [help]
@@ -94,7 +97,7 @@
 	cmd = /usr/bin/iman
 
 [browser "macosx-default-browser"]
-	cmd = <%= File.join(ENV['HOME'], 'bin', 'open-url') %>
+	cmd = /usr/bin/open
 
 [branch]
 	autosetupmerge = true

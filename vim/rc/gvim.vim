@@ -10,14 +10,16 @@ colorscheme mg_symfony
 " Antialias
 set antialias
 
-" Turn on only autoselect, console dialogs and tab pages
+" Turn on only autoselect and console dialogs
 " No menubar, toolbar or scrollbars, as minimal as possible
-set guioptions=ceg
+set guioptions=cg
 
 " Hide mouse when typing
 set mousehide
 
-set guifont=AnonymousProForPowerline:h16
+"set guifont=AnonymousProForPowerline:h16
+"set guifont=Anonymice\ Powerline\ Nerd\ Font\ Plus\ Font\ Awesome\ Mono:h16
+set guifont=monofur\ for\ Powerline\ Nerd\ Font\ Complete\ Mono:h17
 
 " I like a little more linespace with this font
 set linespace=1

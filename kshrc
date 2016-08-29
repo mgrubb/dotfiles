@@ -32,9 +32,11 @@ GVIM='/usr/local/bin/mvim'
 #alias vp="$GVIM --remote-wait-silent $HOME/.profile && . $HOME/.profile"
 #alias vi="$GVIM -c 'au VimLeave * call system(\"open -a iTerm\")'"
 alias gvim="$GVIM"
-alias vi="$GVIM"
-alias vi!='/usr/bin/vi'
-alias svi='sudo -e'
+#alias vi="$GVIM"
+#alias vi!='/usr/bin/vi'
+#alias svi='sudo -e'
+alias emacs='/usr/local/bin/emacsclient -n -c -a ""'
+alias vi='emacs '
 alias vim='/usr/bin/vim'
 alias vk="$GVIM -f $HOME/.kshrc && . $HOME/.kshrc"
 alias vp="$GVIM -f $HOME/.profile && . $HOME/.profile"
@@ -65,6 +67,7 @@ alias be='bundle exec '
 alias guard='bundle exec guard'
 alias vssh='vagrant ssh'
 #alias cd='cdenh'
+alias pio='platformio'
 
 #function man {
 #  man=$1
@@ -93,6 +96,14 @@ function posgrep { grep -iIrn "$1" "$(posd)"; }
 #    g "$@"
 #  fi
 #	#eval `$HOME/.ksh/shell-env`
+#}
+
+#function emacs {
+#  /usr/local/bin/emacs "$@" &
+#}
+#
+#function vi {
+#  emacs "$@"
 #}
 
 function gitc {

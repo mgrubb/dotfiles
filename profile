@@ -14,6 +14,7 @@ CLICOLOR="y"
 VIM_APP_DIR=/Applications
 VIM_PATH="$VIM_APP_DIR/MacVim.app/Contents/MacOS/Vim"
 EDITOR="$HOME/bin/vimedit.sh"
+EDITOR="/usr/local/bin/emacsclient -c -a ''"
 VISUAL="$EDITOR"
 FCEDITOR="$EDITOR"
 PAGER="/usr/bin/less"
@@ -25,15 +26,15 @@ VIMINIT="let b:fromterminal=1|so $HOME/.vimrc"
 NOTESDIR="$HOME/Documents/Notes"
 ECL_HOME="$HOME/Library/ecl"
 RBENV_ROOT="/usr/local/var/rbenv"
-PG90DATA="/opt/local/var/db/postgresql90/defaultdb"
-PGDATA="$PG90DATA"
+#PG90DATA="/opt/local/var/db/postgresql90/defaultdb"
+#PGDATA="$PG90DATA"
 HOMEBREW_CASK_OPTS="--appdir=/Applications"
 GOPATH="$HOME/Source/go"
 F5VPN_USETOKEN=y
 FINDBUGS_HOME=/usr/local/Cellar/findbugs/3.0.1/libexec
 JBOSS_HOME=/usr/local/opt/wildfly-as/libexec
 MANPATH=/usr/local/opt/erlang/lib/erlang/man:${MANPATH}
-PARROT_HOME=/opt/parrot
+#PARROT_HOME=/opt/parrot
 export ENV CLICOLOR VIM_APP_DIR VIM_PATH EDITOR VISUAL FCEDITOR
 export PAGER HISTSIZE CVSROOT CVS_RSH NEW_DIR DISTDIR NOTESDIR PATH
 export PGDATA LANG LC_ALL LESS RBENV_ROOT HOMEBREW_CASK_OPTS GOPATH F5VPN_USETOKEN FINDBUGS_HOME
@@ -41,11 +42,12 @@ export JBOSS_HOME MANPATH
 
 if [ -e "${HOME}/.gpg-agent-info" ]
 then
-  . "${HOME}/.gpg-agent-info"
-  export GPG_AGENT_INFO
+    . "${HOME}/.gpg-agent-info"
+    export GPG_AGENT_INFO
 fi
 
-add_to_path "${PARROT_HOME}/bin"
+add_to_path "/Applications/Postgres.app/Contents/Versions/9.4/bin"
+#add_to_path "${PARROT_HOME}/bin"
 add_to_path "${JBOSS_HOME}/bin"
 add_to_path "$GOPATH/bin"
 add_to_path "$HOME/bin"

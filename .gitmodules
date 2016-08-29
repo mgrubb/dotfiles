@@ -58,9 +58,6 @@
 [submodule "fireplace"]
 	path = vim/bundle/fireplace
 	url = git://github.com/tpope/vim-fireplace.git
-[submodule "classpath"]
-	path = vim/bundle/classpath
-	url = git://github.com/tpope/vim-classpath.git
 [submodule "clojure-static"]
 	path = vim/bundle/clojure-static
 	url = git://github.com/guns/vim-clojure-static.git
@@ -97,3 +94,12 @@
 [submodule "rainbow_parentheses"]
 	path = vim/bundle/rainbow_parentheses
 	url = https://github.com/kien/rainbow_parentheses.vim.git
+[submodule "scala"]
+	path = vim/bundle/scala
+	url = https://github.com/derekwyatt/vim-scala.git
+[submodule "arduino-ino"]
+	path = vim/bundle/arduino-ino
+	url = https://github.com/jplaut/vim-arduino-ino.git
+[submodule "airline-themes"]
+	path = vim/bundle/airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes.git

@@ -17,4 +17,4 @@ set display=lastline
 
 " Set list option
 set listchars=tab:▸\ ,extends:❯,precedes:❮,nbsp:␣
-set showbreak=↪
+let &showbreak='↪ '

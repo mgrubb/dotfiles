@@ -28,3 +28,5 @@ source ~/.vim/rc/cf3.vim
 source ~/.vim/rc/binary.vim
 source ~/.vim/rc/livedown.vim
 source ~/.vim/rc/paredit.vim
+source ~/.vim/rc/arduino.vim
+source ~/.vim/rc/python.vim

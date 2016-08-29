@@ -14,8 +14,8 @@ augroup ft_lyx
 augroup END
 
 augroup ft_clj
-  autocmd filetype clojure let g:clojure_special_indent_words.=',describe'
-  autocmd filetype clojure let g:clojure_fuzzy_indent_patterns+= ['^describe$', 'let$', 'facts', 'fact', 'tabular']
+  autocmd filetype clojure let g:clojure_special_indent_words.=',describe,form-to'
+  autocmd filetype clojure let g:clojure_fuzzy_indent_patterns+= ['^describe$', 'let$', 'facts', 'fact', 'tabular', 'form-to']
 augroup END
 
 augroup ft_lisp
@@ -44,6 +44,16 @@ augroup END
 augroup ft_python
   autocmd FileType python setlocal noexpandtab
 augroup END
+
+" Strip trailing whitespace on save
+fun! <SID>StripTrailingWhitespace()
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  call cursor(l,c)
+endfun
+
+autocmd BufWritePre * :call <SID>StripTrailingWhitespace()
 
 " Misc filetype hooks ----------------------------------------------------{{{
 augroup ft_misc

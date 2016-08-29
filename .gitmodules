@@ -7,9 +7,6 @@
 [submodule "tlib"]
 	path = vim/bundle/tlib
 	url = git://github.com/tomtom/tlib_vim.git
-[submodule "nerdtree"]
-	path = vim/bundle/nerdtree
-	url = git://github.com/scrooloose/nerdtree.git
 [submodule "surround"]
 	path = vim/bundle/surround
 	url = git://github.com/tpope/vim-surround.git

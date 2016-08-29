@@ -22,3 +22,8 @@ let g:syntastic_c_checkers = ['make', 'sparse', 'ycm']
 
 " Disable folding unless I want it
 set nofoldenable
+
+let NERDTreeIgnore=['^Icon\r$']
+
+"Only show tabline when needed
+set showtabline=1

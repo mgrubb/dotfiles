@@ -1,3 +1,12 @@
+emacs.d/SessionDesktop.el
+emacs.d/abbrev_defs
+emacs.d/auto-save-list
+emacs.d/el-get
+emacs.d/elpa
+emacs.d/games
+emacs.d/tmp
+emacs.d/var
+emacs.d/xkcd
 vim/spell
 vim/cache
 vim/tmp

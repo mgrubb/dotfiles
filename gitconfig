@@ -3,6 +3,8 @@
 
 [credential]
   helper = osxkeychain
+  helper = !aws codecommit credential-helper $@
+  UseHttpPath = true
 
 [alias]
 	ci = commit

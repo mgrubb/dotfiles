@@ -1,1 +1,1 @@
-kshrc
+.kshrc

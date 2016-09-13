@@ -1,102 +1,102 @@
 [submodule "fugitive"]
-	path = vim/bundle/fugitive
+	path = .vim/bundle/fugitive
 	url = git://github.com/tpope/vim-fugitive.git
 [submodule "tskeleton"]
-	path = vim/bundle/tskeleton
+	path = .vim/bundle/tskeleton
 	url = git://github.com/tomtom/tskeleton_vim.git
 [submodule "tlib"]
-	path = vim/bundle/tlib
+	path = .vim/bundle/tlib
 	url = git://github.com/tomtom/tlib_vim.git
 [submodule "surround"]
-	path = vim/bundle/surround
+	path = .vim/bundle/surround
 	url = git://github.com/tpope/vim-surround.git
 [submodule "project"]
-	path = vim/bundle/project
+	path = .vim/bundle/project
 	url = git://github.com/shemerey/vim-project.git
 [submodule "wiki"]
-	path = vim/bundle/wiki
+	path = .vim/bundle/wiki
 	url = git://github.com/vim-scripts/vimwiki.git
 [submodule "snipmate."]
 	path = vim/bundle/snipmate.
 	url = git://github.com/msanders/snipmate.vim.git
 [submodule "ack"]
-	path = vim/bundle/ack
+	path = .vim/bundle/ack
 	url = git://github.com/mileszs/ack.vim.git
 [submodule "gist"]
-	path = vim/bundle/gist
+	path = .vim/bundle/gist
 	url = git://github.com/mattn/gist-vim.git
 [submodule "gundo"]
-	path = vim/bundle/gundo
+	path = .vim/bundle/gundo
 	url = git://github.com/sjl/gundo.vim.git
 [submodule "tabular"]
-	path = vim/bundle/tabular
+	path = .vim/bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
 [submodule "increment"]
-	path = vim/bundle/increment
+	path = .vim/bundle/increment
 	url = git@github.com:mgrubb/increment.vim.git
 [submodule "nerdcommenter"]
-	path = vim/bundle/nerdcommenter
+	path = .vim/bundle/nerdcommenter
 	url = git://github.com/scrooloose/nerdcommenter.git
 [submodule "dbext"]
-	path = vim/bundle/dbext
+	path = .vim/bundle/dbext
 	url = git://github.com/edsono/vim-dbext.git
 [submodule "molokai"]
-	path = vim/bundle/molokai
+	path = .vim/bundle/molokai
 	url = https://github.com/tomasr/molokai.git
 [submodule "syntastic"]
-	path = vim/bundle/syntastic
+	path = .vim/bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
 [submodule "ruler"]
-	path = vim/bundle/ruler
+	path = .vim/bundle/ruler
 	url = git://github.com/mgrubb/ruler.vim.git
 [submodule "transpose-words"]
-	path = vim/bundle/transpose-words
+	path = .vim/bundle/transpose-words
 	url = git://github.com/Raimondi/vim-transpose-words.git
 [submodule "fireplace"]
-	path = vim/bundle/fireplace
+	path = .vim/bundle/fireplace
 	url = git://github.com/tpope/vim-fireplace.git
 [submodule "clojure-static"]
-	path = vim/bundle/clojure-static
+	path = .vim/bundle/clojure-static
 	url = git://github.com/guns/vim-clojure-static.git
 [submodule "repeat"]
-	path = vim/bundle/repeat
+	path = .vim/bundle/repeat
 	url = https://github.com/tpope/vim-repeat.git
 [submodule "emmet"]
-	path = vim/bundle/emmet
+	path = .vim/bundle/emmet
 	url = https://github.com/mattn/emmet-vim.git
 [submodule "easymotion"]
-	path = vim/bundle/easymotion
+	path = .vim/bundle/easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
 [submodule "easy-align"]
-	path = vim/bundle/easy-align
+	path = .vim/bundle/easy-align
 	url = https://github.com/junegunn/vim-easy-align.git
 [submodule "airline"]
-	path = vim/bundle/airline
+	path = .vim/bundle/airline
 	url = https://github.com/bling/vim-airline.git
 [submodule "jellybeans"]
-	path = vim/bundle/jellybeans
+	path = .vim/bundle/jellybeans
 	url = https://github.com/nanotech/jellybeans.vim.git
 [submodule "tomorrow-theme"]
-	path = vim/bundle/tomorrow-theme
+	path = .vim/bundle/tomorrow-theme
 	url = https://github.com/chriskempson/vim-tomorrow-theme.git
 [submodule "go"]
-	path = vim/bundle/go
+	path = .vim/bundle/go
 	url = https://github.com/fatih/vim-go.git
 [submodule "livedown"]
-	path = vim/bundle/livedown
+	path = .vim/bundle/livedown
 	url = https://github.com/shime/vim-livedown.git
 [submodule "paredit"]
-	path = vim/bundle/paredit
+	path = .vim/bundle/paredit
 	url = https://github.com/kovisoft/paredit.git
 [submodule "rainbow_parentheses"]
-	path = vim/bundle/rainbow_parentheses
+	path = .vim/bundle/rainbow_parentheses
 	url = https://github.com/kien/rainbow_parentheses.vim.git
 [submodule "scala"]
-	path = vim/bundle/scala
+	path = .vim/bundle/scala
 	url = https://github.com/derekwyatt/vim-scala.git
 [submodule "arduino-ino"]
-	path = vim/bundle/arduino-ino
+	path = .vim/bundle/arduino-ino
 	url = https://github.com/jplaut/vim-arduino-ino.git
 [submodule "airline-themes"]
-	path = vim/bundle/airline-themes
+	path = .vim/bundle/airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git

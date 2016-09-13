@@ -12,7 +12,7 @@ sigil() {
     case "$1" in
         :therefor) printf $'\xe2\x88\xb4' ;;
         :lambda) printf $'\xce\xbb' ;;
-        :branch) printf $'\xe2\xad\xa0' ;;
+        :branch) printf $'\xee\x82\xa0' ;;
         *) printf "$" ;;
     esac
 }

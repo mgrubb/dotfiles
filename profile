@@ -13,8 +13,8 @@ NEW_DIR="$HOME/Library/NewFiles"
 CLICOLOR="y"
 VIM_APP_DIR=/Applications
 VIM_PATH="$VIM_APP_DIR/MacVim.app/Contents/MacOS/Vim"
-EDITOR="$HOME/bin/vimedit.sh"
-EDITOR="/usr/local/bin/emacsclient -c -a ''"
+#EDITOR="$HOME/bin/vimedit.sh"
+EDITOR="ec"
 VISUAL="$EDITOR"
 FCEDITOR="$EDITOR"
 PAGER="/usr/bin/less"
@@ -69,3 +69,8 @@ cleanup_functions
 
 # initialize rbenv
 if which rbenv > /dev/null ; then eval "$(rbenv init -)" ; fi
+
+if [ "$(basename $SHELL)" = "bash" ]
+then
+    . ${HOME}/.bashrc
+fi

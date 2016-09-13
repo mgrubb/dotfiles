@@ -35,9 +35,9 @@ alias gvim="$GVIM"
 #alias vi="$GVIM"
 #alias vi!='/usr/bin/vi'
 #alias svi='sudo -e'
-alias emacs='/usr/local/bin/emacsclient -n -c -a ""'
+alias emacs='ec -n'
 alias vi='emacs '
-alias vim='/usr/bin/vim'
+alias vim='/usr/local/bin/mvim'
 alias vk="$GVIM -f $HOME/.kshrc && . $HOME/.kshrc"
 alias vp="$GVIM -f $HOME/.profile && . $HOME/.profile"
 alias vit="$GVIM -p "
@@ -108,48 +108,48 @@ function posgrep { grep -iIrn "$1" "$(posd)"; }
 
 function gitc {
 	git config -f "$HOME/.dotfiles/gitconfig.erb" "$@" && \
-	(cd $HOME/.dotfiles; rake file[gitconfig.erb,force])
+	    (cd $HOME/.dotfiles; rake file[gitconfig.erb,force])
 }
 
 function canREPL {
-  if [[ -e ./project.clj && \
-      ! -e ./target/repl-port && \
-      ! -e ./target/repl/repl-port && \
-      ! -e ./.nrepl-port ]]
-  then
-    return 0
-  else
-    echo "Not in a clojure project or REPL session already exists." >&2
-    return 1
-  fi
+    if [[ -e ./project.clj && \
+              ! -e ./target/repl-port && \
+              ! -e ./target/repl/repl-port && \
+              ! -e ./.nrepl-port ]]
+    then
+        return 0
+    else
+        echo "Not in a clojure project or REPL session already exists." >&2
+        return 1
+    fi
 }
 
 function trepl {
-  if canREPL
-  then
-    tmux new-session -d 'lein repl'
-  fi
+    if canREPL
+    then
+        tmux new-session -d 'lein repl'
+    fi
 }
 
 # Run a lein repl in tmux if at the root of a clojure project
 # so long as there isn't an existing repl.
 function vil {
-  if canREPL
-  then
-    trepl
-    vi $@
-  fi
+    if canREPL
+    then
+        trepl
+        vi $@
+    fi
 }
 
 function repl {
-  if canREPL
-  then
-    lein repl
-  fi
+    if canREPL
+    then
+        lein repl
+    fi
 }
 
 function flushdns {
-  sudo discoveryutil udnsflushcaches
+    sudo discoveryutil udnsflushcaches
 }
 #if [ -n "$KSH_VERSION" ]
 #then
@@ -170,3 +170,5 @@ function flushdns {
 #}
 #fi
 
+# Hook for desk activation
+[ -n "$DESK_ENV" ] && source "$DESK_ENV" || true

@@ -8,6 +8,7 @@
 (setq gc-cons-threshold 100000000)
 (setq initial-scratch-message "")
 
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp")
 (add-to-list 'load-path (concat user-emacs-directory "lisp"))
 (load "packages-init.el")
 

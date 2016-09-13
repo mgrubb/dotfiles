@@ -1,13 +1,14 @@
 ;; Automatically load paredit when editing a LISP file
 ;; More at http://www.emacswiki.org/emacs/ParEdit
+(use-package evil-paredit
+  :ensure t
+  :commands (evil-paredit-mode))
+
 (use-package paredit
   :ensure t
   :commands (enable-paredit-mode paredit-mode)
   :diminish (paredit-mode . ")")
   :config
-  (use-package evil-paredit
-    :ensure t
-    :commands (evil-paredit-mode))
   (evil-leader/set-key-for-mode 'paredit-mode
     "W" 'paredit-wrap-round
     "(" 'paredit-wrap-round

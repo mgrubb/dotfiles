@@ -37,6 +37,7 @@
 
 (use-package evil-leader
   :demand t
+  :ensure t
   :config
   (global-evil-leader-mode)
   (evil-leader/set-leader ",")

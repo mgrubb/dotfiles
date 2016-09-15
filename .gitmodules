@@ -16,9 +16,6 @@
 [submodule "wiki"]
 	path = .vim/bundle/wiki
 	url = git://github.com/vim-scripts/vimwiki.git
-[submodule "snipmate."]
-	path = vim/bundle/snipmate.
-	url = git://github.com/msanders/snipmate.vim.git
 [submodule "ack"]
 	path = .vim/bundle/ack
 	url = git://github.com/mileszs/ack.vim.git

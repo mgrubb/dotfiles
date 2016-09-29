@@ -17,6 +17,7 @@
 
 (load "utils.el")
 (load "ui-init.el")
+(load "company-init.el")
 (load "edit-init.el")
 (load "telephone-init.el")
 ;;(load "powerline-init.el")
@@ -29,5 +30,7 @@
 (load "magit-init.el")
 (load "help-init.el")
 (load "elm-init.el")
+(load "haskell-init.el")
 (load "javascript-init.el")
+(load "general-init.el")
 (load "evil-init.el")

@@ -8,16 +8,16 @@
   :ensure t
   :commands (enable-paredit-mode paredit-mode)
   :diminish (paredit-mode . ")")
-  :config
-  (evil-leader/set-key-for-mode 'paredit-mode
-    "W" 'paredit-wrap-round
-    "(" 'paredit-wrap-round
-    "w[" 'paredit-wrap-square
-    "w{" 'paredit-wrap-curly
-    "w\"" 'paredit-meta-doublequote
-    "s" 'paredit-splice-sexp
-    ">" 'paredit-forward-slurp-sexp
-    "<" 'paredit-backward-slurp-sexp
-    "j" 'paredit-join-sexps))
-
+)
+;;  :init
+;;  (evil-leader/set-key-for-mode 'paredit-mode
+;;    "W" 'paredit-wrap-round
+;;    "(" 'paredit-wrap-round
+;;    "w[" 'paredit-wrap-square
+;;    "w{" 'paredit-wrap-curly
+;;    "w\"" 'paredit-meta-doublequote
+;;    "s" 'paredit-splice-sexp
+;;    ">" 'paredit-forward-slurp-sexp
+;;    "<" 'paredit-backward-slurp-sexp
+;;    "j" 'paredit-join-sexps)
 (provide 'paredit-init)

@@ -15,6 +15,15 @@
     (args)
   (kill-buffer))
 
+;; moving to use general instead of evil-leader
+;; (use-package evil-leader
+;;   :demand t
+;;   :ensure t
+;;   :config
+;;   (global-evil-leader-mode)
+;;   (evil-leader/set-leader ",")
+;;   (evil-leader/set-key "xk" 'kill-buffer))
+
 (use-package evil
   :demand t
   :ensure t
@@ -34,13 +43,5 @@
   (mg/move-key evil-motion-state-map evil-normal-state-map " ")
   (evil-mode 1)
   )
-
-(use-package evil-leader
-  :demand t
-  :ensure t
-  :config
-  (global-evil-leader-mode)
-  (evil-leader/set-leader ",")
-  (evil-leader/set-key "xk" 'kill-buffer))
 
 (provide 'evil-init)

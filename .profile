@@ -50,6 +50,7 @@ add_to_path "/Applications/Postgres.app/Contents/Versions/9.4/bin"
 #add_to_path "${PARROT_HOME}/bin"
 add_to_path "${JBOSS_HOME}/bin"
 add_to_path "$GOPATH/bin"
+add_to_path "$HOME/Library/Haskell/bin"
 add_to_path "$HOME/bin"
 
 #CCL_DEFAULT_DIRECTORY="/Developer/ccl"

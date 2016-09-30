@@ -16,6 +16,7 @@
 (load custom-file)
 
 (load "utils.el")
+(load "general-init.el")
 (load "ui-init.el")
 (load "company-init.el")
 (load "edit-init.el")
@@ -32,5 +33,4 @@
 (load "elm-init.el")
 (load "haskell-init.el")
 (load "javascript-init.el")
-(load "general-init.el")
 (load "evil-init.el")

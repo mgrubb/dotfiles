@@ -7,8 +7,9 @@ Installation
 ------------
 
     brew install yadm 
-      or https://thelocehiliosan.github.io/yadm/docs/install
     yadm clone git://github.com/mgrubb/dotfiles.git ~/.dotfiles
+
+Or see [yadm installation instructions](https://thelocehiliosan.github.io/yadm/docs/install)
 
 Environment
 -----------

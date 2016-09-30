@@ -10,3 +10,5 @@
                                        (setq forth-minor-indent-level 2)
                                        (setq forth-hilight-level 3)
                                        )))
+
+(provide 'forth-init)

@@ -14,4 +14,3 @@
     (add-hook 'cmake-mode-hook 'cmake-font-lock-activate)))
 
 (provide 'c-init)
-

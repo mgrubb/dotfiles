@@ -25,3 +25,4 @@
 
 (add-hook 'css-mode-hook #'aggressive-indent-mode)
 
+(provide 'web-init)

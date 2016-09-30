@@ -17,4 +17,3 @@
 (add-hook 'eldoc-mode-hook (lambda () (diminish 'eldoc-mode)))
 
 (provide 'lispy-init)
-

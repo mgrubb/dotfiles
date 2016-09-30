@@ -32,3 +32,4 @@
     (setq general-default-prefix ",")
     (setq general-default-keymaps '(evil-normal-state-map global))))
 
+(provide 'general-init)

@@ -6,8 +6,9 @@ These are configuration files to configure my environment.
 Installation
 ------------
 
-    brew install yadm or [https://thelocehiliosan.github.io/yadm/docs/install]
-	yadm clone git://github.com/mgrubb/dotfiles.git ~/.dotfiles
+    brew install yadm 
+      or https://thelocehiliosan.github.io/yadm/docs/install
+    yadm clone git://github.com/mgrubb/dotfiles.git ~/.dotfiles
 
 Environment
 -----------

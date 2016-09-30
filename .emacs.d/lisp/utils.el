@@ -38,3 +38,5 @@
 (fn PRED THEN...)"
   `(when (not ,pred)
      ,@then...))
+
+(provide 'utils)

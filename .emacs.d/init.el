@@ -21,7 +21,6 @@
 (load "company-init.el")
 (load "edit-init.el")
 (load "telephone-init.el")
-;;(load "powerline-init.el")
 (load "web-init.el")
 (load "paredit-init.el")
 (load "lispy-init.el")

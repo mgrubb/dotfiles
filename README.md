@@ -6,9 +6,8 @@ These are configuration files to configure my environment.
 Installation
 ------------
 
-	git clone git://github.com/mgrubb/dotfiles.git ~/.dotfiles
-	cd ~/.dotfiles
-	rake install
+    brew install yadm or [https://thelocehiliosan.github.io/yadm/docs/install]
+	yadm clone git://github.com/mgrubb/dotfiles.git ~/.dotfiles
 
 Environment
 -----------

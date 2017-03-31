@@ -4,7 +4,7 @@ let g:autocommands_loaded = 1
 " Set buffer vars for template expansion
 augroup template_commands
   autocmd BufRead,BufNewFile * let b:defmodeline=g:defmodeline
-  autocmd BufRead,BufNewFile * let b:atwork=InWorkSrcDir(expand('%:p'))
+"  autocmd BufRead,BufNewFile * let b:atwork=InWorkSrcDir(expand('%:p'))
 augroup END
 
 " Set options for LyX files

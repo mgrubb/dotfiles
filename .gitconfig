@@ -2,7 +2,7 @@
   path = ~/.dotfiles/gitconfig.private
 
 [credential]
-  helper = osxkeychain
+  helper = osxkeychain-fallback
   helper = !aws codecommit credential-helper $@
   UseHttpPath = true
 

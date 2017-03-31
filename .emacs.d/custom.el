@@ -6,7 +6,7 @@
  '(org-agenda-files (quote ("~/Org.org")))
  '(package-selected-packages
    (quote
-    (exec-path-from-shell company-c-headers omnisharp cmake-mode scala-mode cider general shm ghc company-mode ess evil clojure-mode paredit emmet-mode js2-mode jade graphviz-dot-mode column-marker simpleclip ztree xkcd which-key web-mode use-package telephone-line tagedit sly-repl-ansi-color sly-quicklisp sly-macrostep rainbow-delimiters powerline-evil org minimap markdown-mode+ magit-gitflow magit-gh-pulls linum-relative help-mode+ help-fns+ help+ haskell-mode go-eldoc flymake-haskell-multi evil-paredit evil-magit evil-leader elm-mode el-get dracula-theme dash-at-point cmake-project cmake-ide cmake-font-lock c-eldoc bug-hunter aggressive-indent ac-html-csswatcher ac-html-bootstrap ac-html ac-emmet ac-cider)))
+    (ac-cider ac-emmet ac-html ac-html-bootstrap ac-html-csswatcher aggressive-indent bug-hunter c-eldoc cider clojure-mode cmake-font-lock cmake-ide cmake-mode cmake-project column-marker company-c-headers company-mode dash-at-point dracula-theme el-get elm-mode emmet-mode ess evil evil-leader evil-magit evil-paredit exec-path-from-shell flymake-haskell-multi geeknote general ghc go-eldoc graphviz-dot-mode haskell-mode help+ help-fns+ help-mode+ jade js2-mode linum-relative magit-gh-pulls magit-gitflow markdown-mode+ minimap omnisharp org paredit powerline-evil rainbow-delimiters scala-mode shm simpleclip sly-macrostep sly-quicklisp sly-repl-ansi-color tagedit telephone-line use-package web-mode which-key xkcd yaml-mode ztree)))
  '(safe-local-variable-values
    (quote
     ((eval ignore-errors "Write-contents-functions is a buffer-local alternative to before-save-hook"

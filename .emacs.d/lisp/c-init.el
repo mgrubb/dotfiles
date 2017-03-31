@@ -1,29 +1,29 @@
 (use-package c-eldoc
+  :ensure t
   :commands c-turn-on-eldoc-mode
   :init
   (setq c-eldoc-includes "-I./ -I../ ")
   (add-hook 'c-mode-common-hook 'c-turn-on-eldoc-mode))
 
 (use-package cmake-mode
+  :ensure t
   :commands cmake-mode
   :mode (("CMakeLists\\.txt\\'" . cmake-mode)
          ("\\.cmake\\'" . cmake-mode))
   :config
   (use-package cmake-font-lock
+    :ensure t
     :init
     (add-hook 'cmake-mode-hook 'cmake-font-lock-activate)))
 
 (c-add-style "user"
              '("linux"
-               (c-basic-offset . 4)     ; Guessed value
+               (c-basic-offset . 2)     ; Guessed value
                (c-offsets-alist
                 (block-close . 0)       ; Guessed value
-                (defun-block-intro . 4) ; Guessed value
+                (defun-block-intro . +) ; Guessed value
                 (defun-close . 0)       ; Guessed value
                 (defun-open . 0)        ; Guessed value
-                (innamespace . +)       ; Guessed value
-                (namespace-close . 0)   ; Guessed value
-                (namespace-open . 0)    ; Guessed value
                 (statement . 0)             ; Guessed value
                 (statement-block-intro . +) ; Guessed value
                 (substatement-open . 0)     ; Guessed value
@@ -69,6 +69,7 @@
                 (inline-close . 0)
                 (inline-open . +)
                 (inmodule . +)
+                (innamespace . +)
                 (knr-argdecl . 0)
                 (knr-argdecl-intro . 0)
                 (label . 0)
@@ -77,6 +78,8 @@
                 (member-init-intro . +)
                 (module-close . 0)
                 (module-open . 0)
+                (namespace-close . 0)
+                (namespace-open . 0)
                 (objc-method-args-cont . c-lineup-ObjC-method-args)
                 (objc-method-call-cont c-lineup-ObjC-method-call-colons c-lineup-ObjC-method-call +)
                 (objc-method-intro .

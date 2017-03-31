@@ -16,6 +16,7 @@
 (load custom-file)
 
 (load "utils.el")
+(load "exec-from-shell-init.el")
 (load "general-init.el")
 (load "ui-init.el")
 (load "company-init.el")

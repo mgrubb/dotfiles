@@ -41,7 +41,17 @@
   ;; (advice-add 'evil-quit :before #'mg/kill-after-quit)
   (mg/move-key evil-motion-state-map evil-normal-state-map (kbd "RET"))
   (mg/move-key evil-motion-state-map evil-normal-state-map " ")
-  (evil-mode 1)
-  )
+  (evil-mode 1))
+
+(use-package evil-surround
+  :ensure t
+  :demand t
+  :init
+  (add-to-list 'evil-surround-operator-alist
+               '(evil-paredit-change . change))
+  (add-to-list 'evil-surround-operator-alist
+               '(evil-paredit-delete . delete))
+  :config
+  (global-evil-surround-mode 1))
 
 (provide 'evil-init)

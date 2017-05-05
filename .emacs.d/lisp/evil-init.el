@@ -46,12 +46,12 @@
 (use-package evil-surround
   :ensure t
   :demand t
-  :init
+  :config
+  (global-evil-surround-mode 1)
   (add-to-list 'evil-surround-operator-alist
                '(evil-paredit-change . change))
   (add-to-list 'evil-surround-operator-alist
                '(evil-paredit-delete . delete))
-  :config
-  (global-evil-surround-mode 1))
+  )
 
 (provide 'evil-init)

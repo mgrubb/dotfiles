@@ -52,6 +52,7 @@ add_to_path "${JBOSS_HOME}/bin"
 add_to_path "$GOPATH/bin"
 add_to_path "$HOME/Library/Haskell/bin"
 add_to_path "$HOME/bin"
+add_to_path "$HOME/Applications/dscli"
 
 #CCL_DEFAULT_DIRECTORY="/Developer/ccl"
 #PLTSCHEME_DIRECTORY="/opt/pltscheme"

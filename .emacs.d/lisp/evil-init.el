@@ -15,14 +15,30 @@
     (args)
   (kill-buffer))
 
+(defun mg/open-worklog ()
+  (org-open-file-with-emacs "~/Documents/Notes/Worklog.org"))
+
 ;; moving to use general instead of evil-leader
-;; (use-package evil-leader
-;;   :demand t
-;;   :ensure t
-;;   :config
-;;   (global-evil-leader-mode)
-;;   (evil-leader/set-leader ",")
-;;   (evil-leader/set-key "xk" 'kill-buffer))
+(use-package evil-leader
+  :demand t
+  :ensure t
+  :config
+  (global-evil-leader-mode)
+  (evil-leader/set-leader ",")
+  (evil-leader/set-key
+    "xk" 'kill-buffer
+    "gj" 'evil-next-visual-line
+    "gk" 'evil-previous-visual-line
+    "W" 'paredit-wrap-round
+    "(" 'paredit-wrap-round
+    "w[" 'paredit-wrap-square
+    "w{" 'paredit-wrap-curly
+    "w\"" 'paredit-meta-doublequote
+    "s" 'paredit-splice-sexp
+    ">" 'paredit-forward-slurp-sexp
+    "<" 'paredit-backward-slurp-sexp
+    "j" 'paredit-join-sexps
+    "owl" 'mg/open-worklog))
 
 (use-package evil
   :demand t
@@ -34,6 +50,13 @@
   (setq evil-emacs-state-cursor '("red" box))
   (setq evil-want-C-u-scroll t)
   :config
+  (when evil-want-C-u-scroll
+    (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
+    (define-key evil-visual-state-map (kbd "C-u") 'evil-scroll-up)
+    (define-key evil-insert-state-map (kbd "C-u")
+      (lambda ()
+        (interactive)
+        (evil-delete (point-at-bol) (point)))))
   (evil-set-initial-state 'cider-repl-mode 'insert)
   (evil-set-initial-state 'ibuffer-mode 'normal)
   (evil-set-initial-state 'sly-db-mode 'emacs)
@@ -48,10 +71,15 @@
   :demand t
   :config
   (global-evil-surround-mode 1)
+  (telephone-line-evil-config)
   (add-to-list 'evil-surround-operator-alist
                '(evil-paredit-change . change))
   (add-to-list 'evil-surround-operator-alist
                '(evil-paredit-delete . delete))
   )
+
+(use-package evil-org
+  :ensure t
+  :demand t)
 
 (provide 'evil-init)

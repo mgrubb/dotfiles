@@ -69,6 +69,10 @@ alias vssh='vagrant ssh'
 #alias cd='cdenh'
 alias pio='platformio'
 
+alias dc='docker-compose'
+alias vbox='VBoxManage'
+alias kp='kitchen'
+
 #function man {
 #  man=$1
 #  sect=$(echo $2 | sed -e 's/\(.\{1,\}\)/(\1)/')

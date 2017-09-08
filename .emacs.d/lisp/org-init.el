@@ -3,7 +3,6 @@
   :ensure t
   :mode ("\\.org\\'" . org-mode)
   :config
-  
   (setq org-directory "~/Documents/Notes")
   (setq org-default-notes-file (concat org-directory "/notes.org"))
   (setq org-capture-templates
@@ -16,7 +15,9 @@
   (setq org-agenda-files '("~/Documents/Notes"))
   (setq default-major-mode 'org-mode))
 
-(use-package org-evil
-  :ensure t)
+(use-package org-bullets
+  :ensure t
+  :init
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
 (provide 'org-init)

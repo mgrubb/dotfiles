@@ -18,6 +18,7 @@
 (load "utils.el")
 (load "exec-from-shell-init.el")
 (load "general-init.el")
+(load "org-init.el")
 (load "ui-init.el")
 (load "company-init.el")
 (load "edit-init.el")

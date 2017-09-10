@@ -34,6 +34,7 @@
   (setq evil-emacs-state-cursor '("red" box))
   (setq evil-want-C-u-scroll t)
   :config
+  (telephone-line-evil-config)
   (evil-set-initial-state 'cider-repl-mode 'insert)
   (evil-set-initial-state 'ibuffer-mode 'normal)
   (evil-set-initial-state 'sly-db-mode 'emacs)

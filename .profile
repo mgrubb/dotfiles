@@ -77,3 +77,5 @@ if [ "$(basename $SHELL)" = "bash" ]
 then
     . ${HOME}/.bashrc
 fi
+
+[ -e "${HOME}/.profile.private" ] && . ${HOME}/.profile.private

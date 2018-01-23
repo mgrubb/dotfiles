@@ -61,6 +61,7 @@
   (evil-set-initial-state 'ibuffer-mode 'normal)
   (evil-set-initial-state 'sly-db-mode 'emacs)
   (advice-add 'evil-get-register :filter-args #'evil-fix-star-register)
+  (advice-add 'evil-set-register :filter-args #'evil-fix-star-register)
   ;; (advice-add 'evil-quit :before #'mg/kill-after-quit)
   (mg/move-key evil-motion-state-map evil-normal-state-map (kbd "RET"))
   (mg/move-key evil-motion-state-map evil-normal-state-map " ")

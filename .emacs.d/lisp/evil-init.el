@@ -79,6 +79,12 @@
                '(evil-paredit-delete . delete))
   )
 
+(use-package evil-matchit
+  :ensure t
+  :demand t
+  :init
+  (global-evil-matchit-mode 1))
+
 (use-package evil-org
   :ensure t
   :demand t)

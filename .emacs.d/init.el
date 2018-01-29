@@ -13,7 +13,7 @@
 (load "packages-init.el")
 
 (setq custom-file (concat user-emacs-directory "custom.el"))
-(load custom-file)
+(load custom-file :noerror)
 
 (load "utils.el")
 (load "exec-from-shell-init.el")

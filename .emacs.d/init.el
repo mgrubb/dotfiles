@@ -13,7 +13,7 @@
 (load "packages-init.el")
 
 (setq custom-file (concat user-emacs-directory "custom.el"))
-(load custom-file)
+(load custom-file :noerror)
 
 (load "utils.el")
 (load "exec-from-shell-init.el")
@@ -21,10 +21,10 @@
 (load "ui-init.el")
 (load "company-init.el")
 (load "edit-init.el")
-(load "telephone-init.el")
 (load "web-init.el")
 (load "paredit-init.el")
 (load "lispy-init.el")
+(load "ruby-init.el")
 (load "clojure-init.el")
 (load "c-init.el")
 (load "markdown-init.el")
@@ -34,3 +34,4 @@
 (load "haskell-init.el")
 (load "javascript-init.el")
 (load "evil-init.el")
+(load "telephone-init.el")

@@ -21,7 +21,6 @@
 (load "ui-init.el")
 (load "company-init.el")
 (load "edit-init.el")
-(load "telephone-init.el")
 (load "web-init.el")
 (load "paredit-init.el")
 (load "lispy-init.el")
@@ -34,3 +33,4 @@
 (load "haskell-init.el")
 (load "javascript-init.el")
 (load "evil-init.el")
+(load "telephone-init.el")

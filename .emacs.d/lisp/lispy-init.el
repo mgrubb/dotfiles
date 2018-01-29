@@ -9,11 +9,12 @@
 
 ;; enable lispy features
 (mapc (lambda (hook)
-	(add-hook hook #'enable-paredit-mode)
-	(add-hook hook #'evil-paredit-mode)
+        (add-hook hook #'enable-paredit-mode)
+        (add-hook hook #'evil-paredit-mode)
         (add-hook hook #'eldoc-mode))
       lispy-hooks)
-
+(load (expand-file-name "~/.quicklisp/slime-helper.el"))
+(setq inferior-lisp-program "lisp")
 (add-hook 'eldoc-mode-hook (lambda () (diminish 'eldoc-mode)))
 
 (provide 'lispy-init)

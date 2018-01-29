@@ -12,6 +12,7 @@ case $TERM in
 	screen) export TERM=dtterm ;;
 esac
 
+alias r='fc -s'
 # Launch apps
 alias sg='launch /Developer/Applications/SmartGit.app'
 alias pl='perl'
@@ -173,6 +174,3 @@ function flushdns {
 #	esac
 #}
 #fi
-
-# Hook for desk activation
-[ -n "$DESK_ENV" ] && source "$DESK_ENV" || true

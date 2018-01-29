@@ -24,6 +24,7 @@
 (load "web-init.el")
 (load "paredit-init.el")
 (load "lispy-init.el")
+(load "ruby-init.el")
 (load "clojure-init.el")
 (load "c-init.el")
 (load "markdown-init.el")

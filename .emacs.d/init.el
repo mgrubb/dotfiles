@@ -35,3 +35,4 @@
 (load "javascript-init.el")
 (load "evil-init.el")
 (load "telephone-init.el")
+(require 'set)

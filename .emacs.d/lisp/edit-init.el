@@ -25,9 +25,10 @@
   :ensure t
   ;; Unicode: U+21E5, UTF-8: E2 87 A5
   ;;  :diminish (aggressive-indent-mode . "⇥")
-  :diminish (aggressive-indent-mode . ">")
+  :diminish (aggressive-indent-mode . "¶")
   :init
   (add-to-list 'aggressive-indent-excluded-modes 'cider-repl-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'coffee-mode)
   :config
   (global-aggressive-indent-mode 1))
 

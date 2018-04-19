@@ -13,7 +13,8 @@
            "* %? %^g\n    %i")))
   (setq org-tag-alist '(("worklog" . ?l)))
   (setq org-agenda-files '("~/Documents/Notes"))
-  (setq default-major-mode 'org-mode))
+  (setq default-major-mode 'org-mode)
+  (setq org-html-validation-link nil))
 
 (use-package org-bullets
   :ensure t

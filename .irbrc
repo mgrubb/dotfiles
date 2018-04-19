@@ -7,12 +7,12 @@ IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
 IRB.conf[:PROMPT_MODE] = :SIMPLE
 IRB.conf[:AUTO_INDENT] = true
 
-%w[rubygems looksee wirble].each do |gem|
-	begin
-		require gem
-	rescue LoadError
-		puts "Error Loading: #{gem}"
-	end
+%w[rubygems looksee].each do |gem|
+  begin
+	require gem
+  rescue LoadError
+	puts "Error Loading: #{gem}"
+  end
 end
 
 class Object

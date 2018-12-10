@@ -27,8 +27,7 @@
   ;;  :diminish (aggressive-indent-mode . "⇥")
   :diminish (aggressive-indent-mode . "¶")
   :init
-  (add-to-list 'aggressive-indent-excluded-modes 'cider-repl-mode)
-  (add-to-list 'aggressive-indent-excluded-modes 'coffee-mode)
+  (setq aggressive-indent-excluded-modes '(cider-repl-mode coffee-mode))
   :config
   (global-aggressive-indent-mode 1))
 

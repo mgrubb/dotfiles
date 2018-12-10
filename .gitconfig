@@ -81,7 +81,7 @@
 [gui]
 
 [core]
-	editor = ec
+	editor = mvim -f
 	quotepath = false
 	excludesfile = ~/.gitignore
 	autocrlf = input

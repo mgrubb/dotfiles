@@ -13,7 +13,7 @@
 	br = branch
 	di = diff
 	dt = difftool
-  mt = mergetool
+    mt = mergetool
 	sub = submodule
 
 	# show difference between the HEAD and the index
@@ -26,6 +26,8 @@
 
 	tags = tag -l -n1
 
+    change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f "
+
   # Legit aliases
 	switch = !legit switch \"$@\"
 	branches = !legit branches
@@ -35,7 +37,7 @@
 	sync = !legit sync \"$@\"
 	publish = !legit publish \"$@\"
 	graft = !legit graft \"$@\"
-  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 
 
 [gui]
@@ -79,7 +81,7 @@
 [gui]
 
 [core]
-	editor = ec
+	editor = mvim -f
 	quotepath = false
 	excludesfile = ~/.gitignore
 	autocrlf = input
@@ -106,10 +108,10 @@
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+	path = 
 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 
 [push]

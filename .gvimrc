@@ -1,1 +1,1 @@
-source ~/.vim/rc/gvim.vim
+.vimrc

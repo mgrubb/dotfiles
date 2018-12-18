@@ -5,7 +5,9 @@
   :ensure t
   :commands (web-mode)
   :mode (("\\.html?\\'" . web-mode)
-         ("\\.css?\\'" . web-mode))
+         ("\\.css\\'" . web-mode)
+         ("\\.scss\\'" . web-mode)
+         ("\\.erb\\'" . web-mode))
   :config
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-css-indent-offset 2)

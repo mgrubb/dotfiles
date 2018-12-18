@@ -18,7 +18,6 @@
 (defun mg/open-worklog ()
   (org-open-file-with-emacs "~/Documents/Notes/Worklog.org"))
 
-;; moving to use general instead of evil-leader
 (use-package evil-leader
   :demand t
   :ensure t

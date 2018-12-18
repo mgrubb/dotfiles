@@ -2,8 +2,7 @@
 
 green() {
     printf '\001\e[38;5;2m\002%s\001\e[0m\002' "$*"
-}
-
+} 
 blue() {
     printf '\001\e[38;5;4m\002%s\001\e[0m\002' "$*"
 }
@@ -52,13 +51,20 @@ git_prompt() {
     fi
 }
 
+__pwd_ps1 () {
+    echo ${PWD/#$HOME/\~}
+}
+
+[ -e ${HOME}/.shell/__pwd_ps1.bash ] && source ${HOME}/.shell/__pwd_ps1.bash
+
 # Sigils
 # THEREFOR \xe2\xce\xbb
 # LAMBDA \xce\xbb
 #PS1=$'${PWD#$HOME/\~} $(sigil :dollar) '
 #PS1=$'$(git_prompt :a)$(blue $(${PWD#$HOME/\~})) $(sigil :therefor) '
 #PS1=$'$(exit_status)$(git_prompt :a)$(blue ${PWD/#$HOME/\~}) $(sigil :therefor) '
-PS1=$'$(git_prompt :a)$(blue ${PWD/#$HOME/\~}) $(sigil :therefor) '
+#PS1=$'$(git_prompt :a)$(blue ${PWD/#$HOME/\~}) $(sigil :therefor) '
+PS1=$'$(git_prompt :a)$(blue $(__pwd_ps1)) $(sigil :therefor) '
 #PS1=$'$(git_prompt :a)$(blue ${PWD#$HOME/\~}) $(sigil :dollar) '
 PS2="$(sigil :lambda) "
 #PS1=$'$(blue $(${PWD#$HOME/\~}))$(git_prompt) \xe2\x88\xb4 '

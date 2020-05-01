@@ -14,6 +14,7 @@ brew "tmux"
 brew "wget"
 brew "curl"
 brew "bash"
+brew "go"
 
 cask "docker"
 cask "hammerspoon"

@@ -1,0 +1,182 @@
+" Setup Plugins with VimPlug
+call plug#begin('~/.local/share/nvim/plugged')
+"Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'vim-airline/vim-airline'
+Plug 'junegunn/vim-easy-align'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdcommenter'
+"Plug 'tpope/vim-rails'
+"Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'lambdalisue/vim-pyenv', { 'for': 'python' }
+Plug 'natebosch/vim-lsc'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fireplace'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'mattn/emmet-vim', {'for': ['html', 'vue', 'css']}
+Plug 'fatih/vim-go', {'for': 'go', 'do': ':GoUpdateBinaries'}
+"Plug 'AndrewRadev/splitjoin.vim'
+"Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'
+"Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'posva/vim-vue'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-abolish'
+Plug 'vim-scripts/paredit.vim'
+Plug 'luochen1990/rainbow'
+"Plug 'leafgarland/typescript-vim'
+"Plug 'vale1410/vim-minizinc'
+"Plug 'pangloss/vim-javascript'
+Plug 'tpope/vim-repeat'
+Plug 'vim-syntastic/syntastic'
+"Plug 'fukamachi/vlime', {'rtp': 'vim/'}
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+" Color schemes
+Plug 'rakr/vim-one'
+"Plug 'wesgibbs/vim-irblack'
+"Plug 'ayu-theme/ayu-vim'
+Plug 'baines/vim-colorscheme-thaumaturge'
+"Plug 'dim13/smyck.vim'
+"Plug 'crater2150/vim-theme-chroma'
+"Plug 'srcery-colors/srcery-vim'
+Plug 'vim-scripts/Relaxed-Green'
+call plug#end()
+
+" Theme settings
+set background=dark
+colorscheme thaumaturge
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set termguicolors
+let g:airline_theme = 'one'
+
+if !has('nvim')
+  set guifont=FiraCodeiScript-Regular:h14
+endif
+
+" Set Editing preferences
+set shiftwidth=2
+set tabstop=2
+set expandtab
+set autoindent
+set smarttab
+set nowrap
+
+
+let g:lsc_server_commands = {'dart': '~/.pub-cache/bin/dart_language_server'}
+let s:vim_config_file = "~/.config/nvim/init.vim"
+
+command! EditConfig :vsplit {{ .chezmoi.sourceDir }}/dot_config/nvim/init.vim.tmpl
+command! Reconfig execute 'silent !chezmoi apply ~/.config/nvim' | execute 'source ' . expand('~/.config/nvim/init.vim')
+autocmd BufWritePost {{ .chezmoi.sourceDir }}/dot_config/nvim/* execute 'silent !chezmoi apply ~/.config/nvim' | execute 'source ' . expand('~/.config/nvim/init.vim')
+
+" Change the Leader key
+let mapleader = ","
+
+" Enable python
+let g:loaded_python_provider = 0
+"let g:python_host_prog = '/usr/local/bin/python'
+let g:python3_host_prog = '/Users/mgrubb/.pyenv/versions/{{ .python_version }}/bin/python'
+autocmd BufNewFile,BufRead *.py
+  \ set tabstop=4
+  \ set softtabstop=4
+  \ set shiftwidth=4
+  \ set textwidth=79
+  \ set expandtab
+  \ set autoindent
+  \ set fileformat=unix
+
+" Keybindings
+nnoremap <F1> <Esc>
+nnoremap <silent> <F2> :NERDTreeToggle<CR>
+nnoremap <silent> <F9> :syntax sync fromstart<CR>
+nnoremap <silent> <leader>n :cnext<CR>
+nnoremap <silent> <leader>p :cprevious<CR>
+nnoremap <silent> <Leader><Enter> :nohlsearch<CR>
+nnoremap <silent> <Right> :tabnext<CR>
+nnoremap <silent> <Left> :tabprevious<CR>
+
+" Plugin Specific settings
+let g:NERDTreeIgnore=['node_modules', 'vendor']
+let g:rainbow_active = 1
+
+" ctrlp
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn|hg))$'
+
+" vim-go
+" run :GoBuild or :GoTestCompile based on go file
+function! s:build_go_files()
+    let l:file = expand('%')
+    if l:file =~# '^\f\+_test\.go$'
+        call go#test#Test(0, 1)
+    elseif l:file =~# '^\f\+\.go$'
+        call go#cmd#Build(0)
+    endif
+endfunction
+
+function! s:setupMarkup()
+  nnoremap <Leader>p :silent !open -a Markoff.app '%:p'<cr>
+endfunction
+
+" Turn off go version checking for now
+let g:go_version_warning = 0
+" Automatically handle imports
+let g:go_fmt_command = "goimports"
+" Enhanced coloring
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
+" Show Type Info automatically
+let g:go_auto_type_info = 1
+
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go nmap <leader>r <Plug>(go-run)
+autocmd FileType go nmap <leader>t <Plug>(go-test)
+autocmd FileType go nmap <leader>c <Plug>(go-coverage-toggle)
+autocmd FileType go nmap <leader>i <Plug>(go-info)
+autocmd FileType go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+autocmd FileType go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+autocmd FileType go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+autocmd FileType go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+" See ~/.config/nvim/ftplugin/go.vim for more
+autocmd BufNewFile,BufRead *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
+
+" Make Fizz files hilight like go file
+autocmd BufNewFile,BufRead *.fizz :set syntax=go
+autocmd FileType go set autowrite
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+
+"NERD Commenter
+let g:NERDSpaceDelims = 1
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhiteSpace = 1
+
+"Syntastic
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_wq = 1
+
+let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_ruby_rubocop_exec = '/usr/local/bin/cookstyle'
+let g:syntastic_mode_map = {
+  \ "passive_filetypes": ["html", "jinja.html"]}
+
+autocmd BufNewFile,BufRead Vagrantfile :SyntasticToggleMode
+
+" vim: ft=vim

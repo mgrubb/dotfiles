@@ -1,0 +1,63 @@
+# vim: ft=sh
+
+# Let's just always be UTF-8
+LANG=en_US.UTF-8
+LC_ALL=en_US.UTF-8
+
+# initialize language environments
+which rbenv >/dev/null 2>&1 && eval "$(rbenv init - --no-rehash)"
+which pyenv >/dev/null 2>&1 && eval "$(pyenv init - --no-rehash ${SHELL})"
+test -d "${HOME}/.nvm" && source "${HOME}/.nvm/nvm.sh"
+
+case "$(basename ${SHELL})" in
+  bash) source ${HOME}/.bashrc ;;
+  *ksh*) export ENV="${HOME}/.kshrc" ;;
+esac
+
+if [ -d "${HOME}/.shell-init" ]
+then
+  for si in ${HOME}/.shell-init/*.sh
+  do
+    . "${si}"
+  done
+fi
+
+add_to_path "/Applications/Postgres.app/Contents/Versions/latest/bin"
+add_to_path "$GOPATH/bin"
+add_to_path "$HOME/bin"
+
+[ -d "${HOME}/.cargo/bin" ] && add_to_path "${HOME}/.cargo/bin"
+
+CLICOLOR="y"
+EDITOR="vimr -s"
+#EDITOR="ec"
+VISUAL="$EDITOR"
+FCEDITOR="$EDITOR"
+PAGER="/usr/bin/less"
+LESS="-R -F"
+HISTSIZE=10240
+GOPATH="$HOME/Source/go"
+export CLICOLOR EDITOR VISUAL FCEDITOR
+export PAGER HISTSIZE PATH
+export LANG LC_ALL LESS GOPATH 
+
+if [ -e "${HOME}/.gpg-agent-info" ]
+then
+    . "${HOME}/.gpg-agent-info"
+    export GPG_AGENT_INFO
+fi
+
+
+JAVA_HOME=$(/usr/libexec/java_home)
+export JAVA_HOME
+
+PRIVATE_ASDF_INSTALL_DIR="$HOME/Library/Lisp/"
+export PRIVATE_ASDF_INSTALL_DIR
+
+HOSTNAME="$(uname -n)"
+
+eval "$(direnv hook $(basename ${SHELL}))"
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+cleanup_functions

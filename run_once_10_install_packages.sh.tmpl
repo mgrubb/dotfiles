@@ -1,0 +1,13 @@
+#!/bin/bash
+
+{{ if eq .chezmoi.os "darwin" -}}
+# install homebrew
+if ! [ -x "$(command -v brew)" ]
+then
+  echo "installing homebrew"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+fi
+
+# install homebrew packages
+brew bundle --file {{ .chezmoi.sourceDir }}/Brewfile
+{{ end }}

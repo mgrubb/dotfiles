@@ -1,0 +1,6 @@
+DerivedData/
+Icon
+.DS_Store
+.*.swp
+\#*.lyx#
+doc/tags

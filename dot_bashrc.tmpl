@@ -1,0 +1,76 @@
+#!/bin/ksh
+
+case $- in
+  *i*) ;;
+  *) return 0;;
+esac
+
+set -o vi
+[ -n "$KSH_VERSION" ] && set -o viraw
+
+case $TERM in
+  screen) export TERM=dtterm ;;
+esac
+
+alias r='fc -s'
+# Launch apps
+alias sg='launch /Developer/Applications/SmartGit.app'
+alias pl='perl'
+alias rk='rake'
+alias plcat='plutil -convert xml1 -o -'
+
+# tmux stuff
+alias tls='tmux list-sessions'
+alias tla='tmux attach'
+
+# Editor stuff
+#alias emacs='ec -n'
+#alias vi='emacs '
+alias vi='vimr '
+alias vim='/usr/local/bin/nvim'
+alias vit='vimr --nvim -p '
+alias vis="vimr --nvim -O "
+
+# File management
+alias ls='ls -hF'
+alias ll='ls -al'
+alias eject='diskutil eject'
+
+# Archive and Package management
+alias z='dtrx '
+alias tar='gtar '
+alias bb='brew bundle --file {{ .chezmoi.sourceDir }}/Brewfile'
+alias bu='brew update'
+alias bup='brew upgrade && brew cleanup'
+alias bd='brew desc'
+alias bi='brew info'
+alias bh='brew home'
+alias bch='brew cask home'
+
+# Use hub extension to git
+alias git='hub '
+
+# Program shortcuts
+alias xml='/opt/local/bin/xmlstarlet'
+alias be='bundle exec '
+alias guard='bundle exec guard'
+alias vssh='vagrant ssh'
+
+alias d='docker'
+alias dc='docker-compose'
+alias dx='docker context'
+alias vbox='VBoxManage'
+alias kp='kitchen'
+
+alias pyr='pipenv run'
+
+alias cm='chezmoi'
+alias cme='chezmoi edit'
+alias tf='terraform'
+alias kc='kubectl'
+
+alias flushdns='sudo discoveryutil udnsflushcaches'
+
+# Useful functions
+
+function growl { echo -en $'\e]9;'${*}'\007' ; }

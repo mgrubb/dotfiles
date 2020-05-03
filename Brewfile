@@ -1,6 +1,7 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
+tap "mgrubb/utils"
 cask_args appdir: "/Applications"
 
 brew "coreutils"
@@ -15,6 +16,7 @@ brew "wget"
 brew "curl"
 brew "bash"
 brew "go"
+brew "mgrubb/utils/apg", args: ["HEAD"]
 
 cask "docker"
 cask "hammerspoon"
@@ -37,4 +39,3 @@ mas "Sequence Diagram", id: 1195426709
 mas "The Unarchiver", id: 425424353
 mas "Kaleidoscope", id: 587512244
 mas "HyperDock", id: 449830122
-mas "Markoff", id: 1084713122

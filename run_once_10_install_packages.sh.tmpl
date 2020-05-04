@@ -1,6 +1,10 @@
 #!/bin/bash
 
 {{ if eq .chezmoi.os "darwin" -}}
+
+# Make sure Xcode command line tools are installed
+xcode-select -p >/dev/null 2>&1 || xcode-select --install
+
 # install homebrew
 if ! [ -x "$(command -v brew)" ]
 then
@@ -10,4 +14,31 @@ fi
 
 # install homebrew packages
 brew bundle --file {{ .chezmoi.sourceDir }}/Brewfile
+
+# Install programming environments
+rbenv versions | grep -qF '{{ .ruby_version }}' || \
+  rbenv install '{{ .ruby_version }}'
+
+rbenv exec gem list -qi neovim >/dev/null || \
+  rbenv exec gem install neovim
+
+pyenv versions | grep -qF '{{ .python_version }}' || \
+  pyenv install '{{ .python_version }}'
+
+pyenv exec pip install --upgrade pip
+# for some reason grep -q was causing python to throw BrokenPipe error
+pyenv exec pip list | grep -F wheel >/dev/null 2>&1 || pyenv exec pip install wheel
+pyenv exec pip list | grep -F neovim >/dev/null 2>&1 || pyenv exec pip install neovim
+
+export NVM_DIR="${HOME}/.nvm" && \
+  ! test -d "${NVM_DIR}" && (
+  git clone https://github.com/nvm-sh/nvm.git "${NVM_DIR}"
+  cd "${NVM_DIR}"
+  git checkout $(git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1))
+)
+source "${NVM_DIR}/nvm.sh"
+nvm ls | grep -qF 'v{{ .node_version }}' || nvm install 'v{{ .node_version }}'
+nvm exec npm ls -g neovim >/dev/null 2>&1 || nvm exec npm install -g neovim
+
 {{ end }}
+# vim: ft=sh

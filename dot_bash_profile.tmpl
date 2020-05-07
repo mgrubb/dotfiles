@@ -22,6 +22,8 @@ then
   done
 fi
 
+GOPATH="$HOME/Source/go"
+
 add_to_path "/Applications/Postgres.app/Contents/Versions/latest/bin"
 add_to_path "$GOPATH/bin"
 add_to_path "$HOME/bin"
@@ -37,7 +39,6 @@ FCEDITOR="$EDITOR"
 PAGER="/usr/bin/less"
 LESS="-R -F"
 HISTSIZE=10240
-GOPATH="$HOME/Source/go"
 export CLICOLOR EDITOR VISUAL FCEDITOR
 export PAGER HISTSIZE PATH
 export LANG LC_ALL LESS GOPATH 

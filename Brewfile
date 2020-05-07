@@ -1,12 +1,15 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
+tap "moncho/dry"
 tap "mgrubb/utils"
 cask_args appdir: "/Applications"
 
 brew "coreutils"
 brew "gnu-tar"
 brew "git"
+brew "git-flow-avh"
+brew "git-utils"
 brew "jq"
 brew "neovim"
 brew "pyenv"
@@ -16,7 +19,11 @@ brew "wget"
 brew "curl"
 brew "bash"
 brew "go"
+brew "scala"
+brew "sbt"
+
 brew "mgrubb/utils/apg", args: ["HEAD"]
+brew "moncho/dry/dry"
 
 cask "docker"
 cask "hammerspoon"
@@ -26,6 +33,7 @@ cask "tiddly"
 cask "dropbox"
 cask "iterm2"
 cask "virtualbox"
+cask "virtualbox-extension-pack"
 cask "vagrant"
 cask "pastebot"
 cask "sourcetree"
@@ -34,6 +42,7 @@ cask "bartender"
 cask "bettertouchtool"
 cask "istat-menus"
 cask "lastpass"
+cask "balenaetcher"
 
 mas "Sequence Diagram", id: 1195426709
 mas "The Unarchiver", id: 425424353

@@ -51,6 +51,9 @@ call plug#end()
 " Theme settings
 set background=dark
 colorscheme thaumaturge
+" Fix Thaumaturge match parent hilighting
+hi MatchParen guifg=#fec51b guibg=#000000 guisp=#000000  gui=NONE ctermfg=NONE ctermbg=80 cterm=NONE
+
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors
 let g:airline_theme = 'one'

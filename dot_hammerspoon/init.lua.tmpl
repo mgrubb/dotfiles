@@ -1,0 +1,142 @@
+hs.hotkey.bind({"alt"}, "F10", function()
+  hs.eventtap.keyStrokes("{{ .hammerspoon.domainname }}")
+end)
+
+hs.hotkey.bind({"alt"}, "F11", function()
+  hs.window.frontmostWindow():setFrameInScreenBounds()
+end)
+
+function patternExplode(s, p)
+  local t = {}
+  for p in string.gmatch(s, p) do
+    table.insert(t, p)
+  end
+  return t
+end
+
+function join(t, d)
+  local len = #t
+  if len == 0 then
+    return ""
+  end
+  if d == nil then
+    d = ","
+  end
+  local string = t[1]
+  for i = 2, len do
+    string = string .. d .. t[i]
+  end
+  return string
+end
+
+transformChoices = {
+  {
+    ["text"] = "Add Colons",
+    ["subText"] = "Transforms 'abcdefgh' to 'ab:cd:ef:gh'",
+    ["uuid"] = "add_colons"
+  },
+  {
+    ["text"] = "Strip Colons",
+    ["subText"] = "Transforms 'ab:cd:ef:gh' to 'abcdefgh'",
+    ["uuid"] = "strip_colons"
+  },
+  {
+    ["text"] = "Uppercase",
+    ["subText"] = "Transforms 'abcdefgh' to 'ABCDEFGH'",
+    ["uuid"] = "upper_case"
+  },
+  {
+    ["text"] = "Lowercase",
+    ["subText"] = "Transforms 'ABCDEFGH' to 'abcdefgh'",
+    ["uuid"] = "lower_case"
+  },
+  {
+    ["text"] = "To Brocade",
+    ["subText"] = "Transforms 'ABCDEFGH' to 'ab:cd:ef:gh'",
+    ["uuid"] = "to_brocade"
+  },
+  {
+    ["text"] = "To DS8K",
+    ["subText"] = "Transforms 'ab:cd:ef:gh' to 'ABCDEFGH'",
+    ["uuid"] = "to_ds8k"
+  },
+  {
+    ["text"] = "To Spaces",
+    ["subText"] = "Transforms 'ab,cd,ef,gh' to 'ab cd ef gh'",
+    ["uuid"] = "to_spaces"
+  }
+}
+
+transformFunctions = {
+  ["add_colons"] = function()
+    local s = hs.pasteboard.readString()
+    if s == nil then
+      return
+    end
+    local si = patternExplode(s, "..")
+    local i = join(si, ":")
+    hs.pasteboard.setContents(i)
+    print("Setting pasteboard to " .. i)
+  end,
+  ["strip_colons"] = function()
+    local s = hs.pasteboard.readString()
+    if s == nil then
+      return
+    end
+    local si = hs.fnutils.split(s, ":")
+    local i = join(si, "")
+    print("Setting pasteboard to " .. i)
+    hs.pasteboard.setContents(i)
+  end,
+  ["upper_case"] = function()
+    local s = hs.pasteboard.readString()
+    if s == nil then
+      return
+    end
+    hs.pasteboard.setContents(string.upper(s))
+  end,
+  ["lower_case"] = function()
+    local s = hs.pasteboard.readString()
+    if s == nil then
+      return
+    end
+    hs.pasteboard.setContents(string.lower(s))
+  end,
+  ["to_brocade"] = function()
+    local s = hs.pasteboard.readString()
+    if s == nil then
+      return
+    end
+    local si = patternExplode(s, "..")
+    local i = string.lower(join(si, ":"))
+    hs.pasteboard.setContents(i)
+  end,
+  ["to_ds8k"] = function()
+    local s = hs.pasteboard.readString()
+    if s == nil then
+      return
+    end
+    local si = hs.fnutils.split(s, ":")
+    local i = string.upper(join(si, ""))
+    hs.pasteboard.setContents(i)
+  end,
+  ["to_spaces"] = function()
+    local s = hs.pasteboard.readString()
+    if s == nil then
+      return
+    end
+    local si = hs.fnutils.split(s, ",")
+    local i = string.upper(join(si, " "))
+    hs.pasteboard.setContents(i)
+  end
+}
+
+hs.hotkey.bind({"cmd", "shift", "alt", "ctrl"}, "t", function()
+  local chooser = hs.chooser.new(function(choice)
+    print(hs.inspect.inspect(choice))
+    transformFunctions[choice.uuid]()
+  end)
+  chooser:choices(transformChoices)
+  chooser:show()
+  print("doing chooser")
+end)

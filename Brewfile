@@ -1,10 +1,12 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
+tap "homebrew/cask-versions"
 tap "moncho/dry"
 tap "mgrubb/utils"
 cask_args appdir: "/Applications"
 
+brew "chezmoi"
 brew "coreutils"
 brew "gnu-tar"
 brew "git"
@@ -21,6 +23,11 @@ brew "bash"
 brew "go"
 brew "scala"
 brew "sbt"
+brew "imagemagick"
+brew "dive"
+
+cask "adoptopenjdk8"
+brew "apache-spark"
 
 brew "mgrubb/utils/apg", args: ["HEAD"]
 brew "moncho/dry/dry"
@@ -43,8 +50,11 @@ cask "bettertouchtool"
 cask "istat-menus"
 cask "lastpass"
 cask "balenaetcher"
+cask "gpg-suite-no-mail"
+cask "ksdiff"
 
 mas "Sequence Diagram", id: 1195426709
 mas "The Unarchiver", id: 425424353
 mas "Kaleidoscope", id: 587512244
 mas "HyperDock", id: 449830122
+

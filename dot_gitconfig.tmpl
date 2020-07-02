@@ -3,9 +3,8 @@
   email = {{ .email }}
 
 [credential]
-  helper = osxkeychain-fallback
-  helper = !aws codecommit credential-helper $@
-  UseHttpPath = true
+  #helper = osxkeychain-fallback
+  #UseHttpPath = true
 
 [alias]
   ci = commit
@@ -134,6 +133,3 @@
   clean = git-lfs clean %f
   smudge = git-lfs smudge %f
   required = true
-[filesystem "Oracle Corporation|9.0.4|/dev/disk1s1"]
-  timestampResolution = 1000 milliseconds
-  minRacyThreshold = 0 nanoseconds

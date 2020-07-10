@@ -140,3 +140,41 @@ hs.hotkey.bind({"cmd", "shift", "alt", "ctrl"}, "t", function()
   chooser:show()
   print("doing chooser")
 end)
+
+local windowTimers = {}
+local log = hs.logger.new("hs", "debug")
+function scheduleWindowClose(w, app, evt)
+  title = w:title()
+  if (string.len(title) == string.len('Calendar')) then
+    return
+  end
+  if (windowTimers[title]) then
+    return
+  end
+  windowTimers[title] = hs.timer.doAfter(300, function ()
+    log.df("Timer expired, closing %s", title)
+    w:close()
+  end)
+  log.df("Found Window %s to close", title)
+end
+
+function cancelWindowClose(w, app, evt)
+  local title = w:title()
+  local timer = windowTimers[title]
+  if (not timer) then
+    return
+  end
+  timer:stop()
+  windowTimers[title] = nil
+  log.df("Canceled close of window %s", title)
+end
+
+function closeZoomWindows()
+  local wf = hs.window.filter
+  local wf_outlook = wf.new(false):setAppFilter("Microsoft Outlook", {allowTitles=' Calendar '})
+  wf_outlook:subscribe(hs.window.filter.windowUnfocused, scheduleWindowClose)
+  wf_outlook:subscribe(hs.window.filter.windowFocused, cancelWindowClose)
+  wf_outlook:subscribe(hs.window.filter.windowClosed, cancelWindowClose)
+end
+
+closeZoomWindows()

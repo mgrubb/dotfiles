@@ -11,6 +11,7 @@ sigil() {
     case "$1" in
         :therefor) printf $'\xe2\x88\xb4' ;;
         :lambda) printf $'\xce\xbb' ;;
+        :delta) printf $'\xf0\x9d\x9a\xab' ;;
         :branch) printf $'\xee\x82\xa0' ;;
         *) printf "$" ;;
     esac
@@ -64,7 +65,7 @@ __pwd_ps1 () {
 #PS1=$'$(git_prompt :a)$(blue $(${PWD#$HOME/\~})) $(sigil :therefor) '
 #PS1=$'$(exit_status)$(git_prompt :a)$(blue ${PWD/#$HOME/\~}) $(sigil :therefor) '
 #PS1=$'$(git_prompt :a)$(blue ${PWD/#$HOME/\~}) $(sigil :therefor) '
-PS1=$'$(git_prompt :a)$(blue $(__pwd_ps1)) $(sigil :therefor) '
+PS1=$'$(git_prompt :a)$(blue $(__pwd_ps1)) $(sigil :lambda) '
 #PS1=$'$(git_prompt :a)$(blue ${PWD#$HOME/\~}) $(sigil :dollar) '
-PS2="$(sigil :lambda) "
+PS2="$(sigil :delta) "
 #PS1=$'$(blue $(${PWD#$HOME/\~}))$(git_prompt) \xe2\x88\xb4 '

@@ -1,6 +1,7 @@
 [user]
   name = {{ .name }}
   email = {{ .email }}
+  {{ if .gpgkeyid }}signingkey = {{ .gpgkeyid }}{{ end }}
 
 [credential]
   #helper = osxkeychain-fallback

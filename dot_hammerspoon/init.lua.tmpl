@@ -174,7 +174,7 @@ function closeZoomWindows()
   local wf_outlook = wf.new(false):setAppFilter("Microsoft Outlook", {allowTitles=' Calendar '})
   wf_outlook:subscribe(hs.window.filter.windowUnfocused, scheduleWindowClose)
   wf_outlook:subscribe(hs.window.filter.windowFocused, cancelWindowClose)
-  wf_outlook:subscribe(hs.window.filter.windowClosed, cancelWindowClose)
+  wf_outlook:subscribe(hs.window.filter.windowDestroyed, cancelWindowClose)
 end
 
 closeZoomWindows()

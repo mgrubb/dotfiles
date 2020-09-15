@@ -59,6 +59,8 @@ Plug 'vim-scripts/Relaxed-Green'
 call plug#end()
 
 " Set Editing preferences
+set splitright
+set splitbelow
 set shiftwidth=2
 set tabstop=2
 set expandtab
@@ -80,8 +82,8 @@ let mapleader = ","
 " Enable python
 let g:loaded_python_provider = 0
 "let g:python_host_prog = '/usr/local/bin/python'
-let g:python3_host_prog = '/Users/mgrubb/.pyenv/versions/{{ .python_version }}/bin/python'
-let g:ruby_host_prog = '/Users/mgrubb/.rbenv/versions/{{ .ruby_version }}/bin/neovim-ruby-host'
+let g:python3_host_prog = '/Users/mgrubb/.pyenv/shims/python'
+let g:ruby_host_prog = '/Users/mgrubb/.rbenv/shims/neovim-ruby-host'
 autocmd BufNewFile,BufRead *.py set
   \ tabstop=4
   \ softtabstop=4
@@ -109,6 +111,8 @@ nnoremap <silent> <Leader>O O<Esc>j
 nnoremap <silent> <leader><space> :set invlist<cr>
 " Replace up to next char
 nnoremap <leader>m ct
+" Use // to search for selected text
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 " Plugin Specific settings
 let g:NERDTreeIgnore=['node_modules', 'vendor']

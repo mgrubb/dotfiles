@@ -4,6 +4,9 @@
 LANG=en_US.UTF-8
 LC_ALL=en_US.UTF-8
 
+# Fix High Sierra Fork problem exhibited by ansible 2.10
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
 # initialize language environments
 which rbenv >/dev/null 2>&1 && eval "$(rbenv init - --no-rehash)"
 which pyenv >/dev/null 2>&1 && eval "$(pyenv init - --no-rehash ${SHELL})"

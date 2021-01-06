@@ -1,8 +1,12 @@
+" Disable ALE LSP
+let g:ale_disable_lsp = 1
+
 " Setup Plugins with VimPlug
 call plug#begin('~/.local/share/nvim/plugged')
 command! -nargs=+ -bar CocPlug call plug#(<args>, {'do': 'yarn install --frozen-lockfile'})
 "Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'airblade/vim-rooter' " Changes working directory to project root
+Plug 'cespare/vim-toml'
 Plug 'vim-airline/vim-airline'
 Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -68,6 +72,8 @@ set autoindent
 set smarttab
 set nowrap
 
+let g:jedi#completions_enabled = 0
+let g:jedi#popup_on_dot = 0
 
 let g:lsc_server_commands = {'dart': '~/.pub-cache/bin/dart_language_server'}
 let s:vim_config_file = "~/.config/nvim/init.vim"
@@ -189,6 +195,7 @@ if exists('*complete_info')
 else
   imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
+
 
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnositc-prev)

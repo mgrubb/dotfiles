@@ -25,6 +25,7 @@ brew "scala"
 brew "sbt"
 brew "imagemagick"
 brew "dive"
+brew "karn"
 
 cask "adoptopenjdk8"
 brew "apache-spark"

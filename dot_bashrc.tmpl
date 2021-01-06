@@ -48,9 +48,6 @@ alias bi='brew info'
 alias bh='brew home'
 alias bch='brew cask home'
 
-# Use hub extension to git
-alias git='hub '
-
 # Program shortcuts
 alias xml='/opt/local/bin/xmlstarlet'
 alias be='bundle exec '
@@ -75,3 +72,14 @@ alias flushdns='sudo discoveryutil udnsflushcaches'
 # Useful functions
 
 function growl { echo -en $'\e]9;'${*}'\007' ; }
+_gitcmd=git
+which hub > /dev/null && _gitcmd=hub
+if which karn > /dev/null
+then
+  function git {
+    karn update
+    command $_gitcmd "$@"
+  }
+else
+  alias git='hub '
+fi

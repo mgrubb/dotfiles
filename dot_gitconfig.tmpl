@@ -7,6 +7,9 @@
   #helper = osxkeychain-fallback
   #UseHttpPath = true
 
+[init]
+  defaultBranch = main
+
 [alias]
   ci = commit
   co = checkout
@@ -39,9 +42,6 @@
   publish = !legit publish \"$@\"
   graft = !legit graft \"$@\"
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
-
-
-[gui]
 
 [color]
   ui = true
@@ -79,8 +79,6 @@
 [mergetool "kdiff3"]
   path = /Developer/Applications/kdiff3.app/Contents/MacOS/kdiff3
 
-[gui]
-
 [core]
   editor = nvim
   quotepath = false
@@ -115,14 +113,15 @@
   cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
   trustExitCode = true
 
+[pull]
+  rebase = true
+
 [push]
   default = simple
+  followTags = true
 
 [difftool "Kaleidoscope"]
   cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-
-[difftool]
-  prompt = false
 
 [mergetool "Kaleidoscope"]
   cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot

@@ -7,4 +7,4 @@
     node_version = "14.1.0"
 
 [data.hammerspoon]
-    domainname = "{{ trim (index (lastpass "Secure Notes\\Chezmoi/hammerspoon_secrets") 0).note.domainname }}"
+    domainname = "{{ promptString "Domain Name" | trim }}"

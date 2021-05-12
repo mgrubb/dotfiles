@@ -5,6 +5,7 @@
     ruby_version = "2.7.1"
     python_version = "3.8.2"
     node_version = "14.1.0"
+    signingkey = "{{ promptString "GPG Signing Key" | trim }}"
 
 [data.hammerspoon]
     domainname = "{{ promptString "Domain Name" | trim }}"

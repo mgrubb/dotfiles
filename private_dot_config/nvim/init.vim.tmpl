@@ -38,6 +38,7 @@ Plug 'tpope/vim-repeat'
 Plug 'dense-analysis/ale' " Better syntax/linter
 "Plug 'fukamachi/vlime', {'rtp': 'vim/'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Code completion engine
+Plug 'jvirtanen/vim-hcl'
 
 " Language Servers
 CocPlug 'fannheyward/coc-texlab'
@@ -46,9 +47,9 @@ CocPlug 'neoclide/coc-json'
 CocPlug 'neoclide/coc-yaml'
 CocPlug 'neoclide/coc-html'
 CocPlug 'neoclide/coc-rls'
-CocPlug 'neoclide/coc-python'
 CocPlug 'josa42/coc-go'
 CocPlug 'neoclide/coc-vetur'
+CocPlug 'pappasam/coc-jedi'
 
 " Color schemes
 Plug 'rakr/vim-one'
@@ -94,7 +95,6 @@ autocmd BufNewFile,BufRead *.py set
   \ tabstop=4
   \ softtabstop=4
   \ shiftwidth=4
-  \ textwidth=79
   \ expandtab
   \ autoindent
   \ fileformat=unix
@@ -145,7 +145,8 @@ endfunction
 " Turn off go version checking for now
 let g:go_version_warning = 0
 " Automatically handle imports
-let g:go_fmt_command = "goimports"
+let g:go_fmt_command = "gopls"
+let g:go_gopls_gofumpt=1
 " Enhanced coloring
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1

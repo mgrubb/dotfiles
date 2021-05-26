@@ -9,7 +9,14 @@ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 # initialize language environments
 which rbenv >/dev/null 2>&1 && eval "$(rbenv init - --no-rehash)"
-which pyenv >/dev/null 2>&1 && eval "$(pyenv init - --no-rehash ${SHELL})"
+
+if which pyenv >/dev/null 2>&1
+then
+  export PYENV_ROOT="${HOME}/.pyenv"
+  eval "$(pyenv init --path)"
+  eval "$(pyenv init - --no-rehash ${SHELL})"
+fi
+
 test -d "${HOME}/.nvm" && source "${HOME}/.nvm/nvm.sh"
 
 case "$(basename ${SHELL})" in

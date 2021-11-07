@@ -32,14 +32,27 @@ then
   done
 fi
 
-GOPATH="$HOME/Source/go"
+GOPATH="${HOME}/Source/go"
 
 add_to_path "/Applications/Postgres.app/Contents/Versions/latest/bin"
-add_to_path "$GOPATH/bin"
-add_to_path "$HOME/bin"
+add_to_path "${GOPATH}/bin"
+add_to_path "${HOME}/bin"
 
-[ -d "${HOME}/.cargo/bin" ] && add_to_path "${HOME}/.cargo/bin"
-[ -d "${HOME}/.iterm2" ] && add_to_path "${HOME}/.iterm2"
+if [ -d "${HOME}/Applications/instantclient_19_8" ]
+then
+  export ORACLE_HOME="${HOME}/Applications/instantclient_19_8"
+  [ -n "${DYLD_LIBRARY_PATH}" ] && DYLD_LIBRARY_PATH="${DYLD_LIBRARY_PATH}:${ORACLE_HOME}"
+  [ -z "${DYLD_LIBRARY_PATH}" ] && DYLD_LIBRARY_PATH="${ORACLE_HOME}"
+  export DYLD_LIBRARY_PATH
+  add_to_path "${ORACLE_HOME}"
+  TNS_ADMIN="${ORACLE_HOME}/network/admin"
+  export TNS_ADMIN
+fi
+
+add_to_path "${HOME}/Applications/sqlcl/bin"
+
+add_to_path "${HOME}/.cargo/bin"
+add_to_path "${HOME}/.iterm2"
 
 CLICOLOR="y"
 EDITOR="vimr -s"

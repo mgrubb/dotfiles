@@ -1,4 +1,5 @@
 #!/bin/ksh
+# vim: set ft=sh:
 
 case $- in
   *i*) ;;
@@ -69,15 +70,19 @@ alias kc='kubectl'
 
 alias flushdns='sudo discoveryutil udnsflushcaches'
 
+alias sqlplus='rlwrap sqlplus'
+
 # Useful functions
 
-function growl { echo -en $'\e]9;'${*}'\007' ; }
 _gitcmd=git
 which hub > /dev/null && _gitcmd=hub
 if which karn > /dev/null
 then
   function git {
-    karn update
+    if [ "$1" != "clone" ]
+    then
+      karn update
+    fi
     command $_gitcmd "$@"
   }
 else

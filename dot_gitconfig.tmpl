@@ -133,3 +133,8 @@
   clean = git-lfs clean %f
   smudge = git-lfs smudge %f
   required = true
+{{/* template "gitconfig.tmpl" . */ -}}
+{{ if stat "giturl_rules.conf" }}
+  {{ include "giturl_rules.conf" -}}
+{{ end -}}
+

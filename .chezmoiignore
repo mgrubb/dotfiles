@@ -2,3 +2,4 @@ Brewfile
 Brewfile.lock.json
 iterm2
 README.md
+giturl_rules.conf

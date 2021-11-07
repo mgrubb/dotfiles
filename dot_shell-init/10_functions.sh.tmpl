@@ -44,7 +44,9 @@ function pyvenv_activate {
 }
 alias va='pyvenv_activate'
 
+# Only add to path if it exists
 function add_to_path {
+  [ -d "$1" ] || return
   if ! echo "$PATH" | tr ':' '\n' | grep -x -q "$1"
   then
     PATH="$1:$PATH"

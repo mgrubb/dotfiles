@@ -76,13 +76,9 @@
 [mergetool]
   prompt = false
 
-[mergetool "kdiff3"]
-  path = /Developer/Applications/kdiff3.app/Contents/MacOS/kdiff3
-
 [core]
   editor = nvim
   quotepath = false
-  excludesfile = ~/.gitignore
   autocrlf = input
 
 [help]
@@ -90,28 +86,16 @@
   format = web
 
 [man]
-  viewer = iman
   viewer = man
 
 [web]
   browser = macosx-default-browser
-
-[man "iman"]
-  cmd = /usr/bin/iman
 
 [browser "macosx-default-browser"]
   cmd = /usr/bin/open
 
 [branch]
   autosetupmerge = true
-
-[difftool "sourcetree"]
-  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-  path =
-
-[mergetool "sourcetree"]
-  cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-  trustExitCode = true
 
 [pull]
   rebase = true
@@ -128,13 +112,13 @@
   trustExitCode = true
 
 [hub]
-  protocol = https
+  protocol = git
+
 [filter "lfs"]
   clean = git-lfs clean %f
   smudge = git-lfs smudge %f
   required = true
-{{/* template "gitconfig.tmpl" . */ -}}
+
 {{ if stat "giturl_rules.conf" }}
   {{ include "giturl_rules.conf" -}}
 {{ end -}}
-

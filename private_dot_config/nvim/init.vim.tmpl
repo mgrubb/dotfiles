@@ -22,8 +22,8 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'mattn/emmet-vim', {'for': ['html', 'vue', 'css']}
 Plug 'fatih/vim-go', {'for': 'go', 'do': ':GoUpdateBinaries'}
 "Plug 'AndrewRadev/splitjoin.vim'
-"Plug 'SirVer/ultisnips'
-"Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 "Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'posva/vim-vue'
 Plug 'andymass/vim-matchup' " enhance % to match language specific pairs
@@ -289,5 +289,8 @@ endif
 
 " Vim-Rooter
 let g:rooter_change_directory_for_non_project_files = 'current'
+
+" UltiSnips settings
+let g:UltiSnipsListSnippets="<c-l>"
 
 " vim: ft=vim

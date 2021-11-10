@@ -119,6 +119,6 @@
   smudge = git-lfs smudge %f
   required = true
 
-{{ if stat "giturl_rules.conf" }}
-  {{- include "giturl_rules.conf" -}}
+{{ if stat (printf "%s/giturl_rules.conf" .chezmoi.sourceDir) }}
+  {{- include (printf "%s/giturl_rules.conf" .chezmoi.sourceDir) }}
 {{ end -}}

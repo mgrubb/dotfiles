@@ -46,10 +46,11 @@ CocPlug 'neoclide/coc-pairs'
 CocPlug 'neoclide/coc-json'
 CocPlug 'neoclide/coc-yaml'
 CocPlug 'neoclide/coc-html'
-CocPlug 'neoclide/coc-rls'
+CocPlug 'fannheyward/coc-rust-analyzer'
 CocPlug 'josa42/coc-go'
 CocPlug 'neoclide/coc-vetur'
 CocPlug 'pappasam/coc-jedi'
+Plug 'neoclide/coc-sources',  {'rtp': 'packages/ultisnips'}
 
 " Color schemes
 Plug 'rakr/vim-one'
@@ -292,5 +293,6 @@ let g:rooter_change_directory_for_non_project_files = 'current'
 
 " UltiSnips settings
 let g:UltiSnipsListSnippets="<c-l>"
+let g:UltiSnipsExpandTrigger="<nop>"
 
 " vim: ft=vim

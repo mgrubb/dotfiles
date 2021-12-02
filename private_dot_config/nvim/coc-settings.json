@@ -1,5 +1,20 @@
 {
   "diagnostic.displayByAle": true,
   "yaml.format.enable": true,
-  "python.pythonPath": "python"
+  "python.pythonPath": "python",
+  "languageserver": {
+    "racket": {
+      "command": "racket",
+      "args": [
+        "--lib",
+        "racket-langserver"
+      ],
+      "filetypes": [
+        "scheme",
+        "racket",
+        "rkt",
+        "rktl"
+      ]
+    }
+  }
 }

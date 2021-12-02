@@ -1,4 +1,5 @@
 {{- $email := promptString "email" -}}
+verbose = true
 [data]
     email = "{{ $email }}"
     name = "Michael Grubb"
@@ -9,3 +10,7 @@
 
 [data.hammerspoon]
     domainname = "{{ promptString "Domain Name" | trim }}"
+
+[merge]
+  command = "ksdiff"
+  args = ["--merge", "--output", "{{.Source}}", "{{.Destination}}", "{{.Target}}"]

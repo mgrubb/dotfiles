@@ -84,6 +84,8 @@ let s:vim_config_file = "~/.config/nvim/init.vim"
 command! EditConfig :vsplit {{ .chezmoi.sourceDir }}/dot_config/nvim/init.vim.tmpl
 command! Reconfig execute 'silent !chezmoi apply ~/.config/nvim' | execute 'source ' . expand('~/.config/nvim/init.vim')
 autocmd BufWritePost {{ .chezmoi.sourceDir }}/dot_config/nvim/* execute 'silent !chezmoi apply ~/.config/nvim'
+autocmd FileType racket abbrev `l λ
+autocmd FileType racket let b:coc_pairs_disabled = ["`", "'"]
 
 " Change the Leader key
 let mapleader = ","

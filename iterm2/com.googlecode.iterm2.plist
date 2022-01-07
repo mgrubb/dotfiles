@@ -26,6 +26,8 @@
 	<integer>25</integer>
 	<key>BadgeTopMargin</key>
 	<integer>-30</integer>
+	<key>BracketedPasteMode</key>
+	<true/>
 	<key>CheckTestRelease</key>
 	<true/>
 	<key>ClosingHotkeySwitchesSpaces</key>

@@ -4,6 +4,7 @@
 
 __pwd_ps1 ()
 {
+    typeset status=$?
     begin=""
     homebegin=""
     shortbegin=""
@@ -46,4 +47,5 @@ __pwd_ps1 ()
     [[ "$shortenedpath" =~ ^"~" ]] && printf "$shortenedpath" # Don't use / for home dir
 
     shopt "$NGV" nullglob # Reset nullglob in case this is being used as a function.
+    return $status
 }

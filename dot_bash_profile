@@ -69,6 +69,16 @@ export CLICOLOR EDITOR VISUAL FCEDITOR
 export PAGER PATH
 export LANG LC_ALL LESS GOPATH 
 
+if [ -e "${HOME}/.dircolors" ]
+then
+  dircolors=dircolors
+  if [ -e /usr/local/bin/gdircolors ]
+  then
+    dircolors=/usr/local/bin/gdircolors
+  fi
+  eval "$(${dircolors} ${HOME}/.dircolors)"
+fi
+
 if [ -e "${HOME}/.gpg-agent-info" ]
 then
     . "${HOME}/.gpg-agent-info"

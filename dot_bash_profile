@@ -61,9 +61,12 @@ VISUAL="$EDITOR"
 FCEDITOR="$EDITOR"
 PAGER="/usr/bin/less"
 LESS="-R -F"
-HISTSIZE=10240
+HISTCONTROL="ignorespace:erasedups"
+HISTFILESIZE=512
+HISTSIZE=1024
+HISTIGNORE="history:history *:hist:hist *"
 export CLICOLOR EDITOR VISUAL FCEDITOR
-export PAGER HISTSIZE PATH
+export PAGER PATH
 export LANG LC_ALL LESS GOPATH 
 
 if [ -e "${HOME}/.gpg-agent-info" ]

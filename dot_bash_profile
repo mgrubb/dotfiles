@@ -37,6 +37,7 @@ GOPATH="${HOME}/Source/go"
 add_to_path "/Applications/Postgres.app/Contents/Versions/latest/bin"
 add_to_path "${GOPATH}/bin"
 add_to_path "${HOME}/bin"
+add_to_path "/usr/local/sbin"
 
 if [ -d "${HOME}/Applications/instantclient_19_8" ]
 then
@@ -85,6 +86,11 @@ then
     export GPG_AGENT_INFO
 fi
 
+# Show all the updates when doing brew update
+HOMEBREW_UPDATE_REPORT_ALL_FORMULAE=y
+# Get rid of deprecation warning for brew desc
+HOMEBREW_EVAL_ALL=y
+export HOMEBREW_UPDATE_REPORT_ALL_FORMULAE HOMEBREW_EVAL_ALL
 
 JAVA_HOME=$(/usr/libexec/java_home)
 export JAVA_HOME

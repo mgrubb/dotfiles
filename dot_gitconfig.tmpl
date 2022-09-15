@@ -112,12 +112,15 @@
   trustExitCode = true
 
 [hub]
-  protocol = git
+  protocol = ssh
 
 [filter "lfs"]
   clean = git-lfs clean %f
   smudge = git-lfs smudge %f
   required = true
+
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
 
 {{ if stat (printf "%s/giturl_rules.conf" .chezmoi.sourceDir) }}
   {{- include (printf "%s/giturl_rules.conf" .chezmoi.sourceDir) }}

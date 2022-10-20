@@ -1,7 +1,6 @@
 {
   "diagnostic.displayByAle": true,
   "yaml.format.enable": true,
-  "python.pythonPath": "python",
   "languageserver": {
     "racket": {
       "command": "racket",
@@ -16,5 +15,7 @@
         "rktl"
       ]
     }
-  }
+  },
+  "go.goplsPath": "/Users/mgrubb/Source/go/bin/gopls",
+  "go.goplsArgs": ["-remote=auto", "-logfile", "/tmp/gopls.log"]
 }

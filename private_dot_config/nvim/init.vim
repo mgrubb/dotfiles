@@ -12,10 +12,10 @@ Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
 "Plug 'tpope/vim-rails'
-"Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
+Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'lambdalisue/vim-pyenv', { 'for': 'python' }
-Plug 'natebosch/vim-lsc'
+" Plug 'natebosch/vim-lsc'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fireplace'
 Plug 'terryma/vim-multiple-cursors'
@@ -53,6 +53,7 @@ CocPlug 'fannheyward/coc-rust-analyzer'
 CocPlug 'josa42/coc-go'
 CocPlug 'neoclide/coc-vetur'
 CocPlug 'pappasam/coc-jedi'
+CocPlug 'iamcco/coc-flutter'
 Plug 'neoclide/coc-sources',  {'rtp': 'packages/ultisnips'}
 
 " Color schemes
@@ -77,20 +78,27 @@ set autoindent
 set smarttab
 set nowrap
 
+
 let g:jedi#completions_enabled = 0
 let g:jedi#popup_on_dot = 0
 
-let g:lsc_server_commands = {'dart': '~/.pub-cache/bin/dart_language_server'}
+" let g:lsc_server_commands = {'dart': '~/.pub-cache/bin/dart_language_server'}
 let s:vim_config_file = "~/.config/nvim/init.vim"
 
-command! EditConfig :vsplit {{ .chezmoi.sourceDir }}/dot_config/nvim/init.vim.tmpl
+runtime chezmoi.vim
+execute 'command! EditConfig :vsplit '.g:chezmoi_source.'/private_dot_config/nvim/init.vim'
 command! Reconfig execute 'silent !chezmoi apply ~/.config/nvim' | execute 'source ' . expand('~/.config/nvim/init.vim')
-autocmd BufWritePost {{ .chezmoi.sourceDir }}/dot_config/nvim/* execute 'silent !chezmoi apply ~/.config/nvim'
+execute 'autocmd BufWritePost '.g:chezmoi_source.'/private_dot_config/nvim/* execute "silent !chezmoi apply ~/.config/nvim"'
+
 autocmd FileType racket abbrev `l λ
 autocmd FileType racket let b:coc_pairs_disabled = ["`", "'"]
 
 " Change the Leader key
 let mapleader = ","
+
+
+" Dart Format
+autocmd FileType dart nnoremap <silent> cf execute '%!dart format'
 
 " Enable python
 let g:loaded_python_provider = 0
@@ -126,6 +134,8 @@ nnoremap <leader>m ct
 " Use // to search for selected text
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
+nnoremap <leader>u :call url#Open()<CR>
+
 " Plugin Specific settings
 let g:NERDTreeIgnore=['node_modules', 'vendor']
 let g:rainbow_active = 1
@@ -147,6 +157,8 @@ endfunction
 function! s:setupMarkup()
   nnoremap <Leader>p :silent !open -a Markoff.app '%:p'<cr>
 endfunction
+
+" let g:go_debug = ['shell-commands', 'lsp']
 
 " Turn off go version checking for now
 let g:go_version_warning = 0

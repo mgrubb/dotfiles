@@ -52,11 +52,12 @@ fi
 
 alias eject='diskutil eject'
 
+. ${HOME}/.chezmoivars
 # Archive and Package management
 alias z='dtrx '
 alias tar='gtar '
-alias bb='brew bundle -v --file {{ .chezmoi.sourceDir }}/Brewfile'
-alias bbe='$EDITOR {{ .chezmoi.sourceDir }}/Brewfile'
+alias bb="brew bundle -v --file ${CHEZMOI_SOURCE}/Brewfile"
+alias bbe='$EDITOR '${CHEZMOI_SOURCE}'/Brewfile'
 alias bu='brew update'
 alias bup='brew upgrade && brew cleanup'
 alias bd='brew desc'
@@ -103,3 +104,12 @@ then
 else
   alias git='hub '
 fi
+
+function exercism {
+    local out
+    readarray -t out < <(command exercism "$@")
+    printf '%s\n' "${out[@]}"
+    if [[ $1 == "download" && -d "${out[-1]}" ]]; then
+        cd "${out[-1]}" || return 1
+    fi
+}

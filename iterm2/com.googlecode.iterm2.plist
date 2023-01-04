@@ -38,11 +38,6 @@
 	<integer>1</integer>
 	<key>ConvertDosNewlines</key>
 	<false/>
-	<key>Coprocess MRU</key>
-	<array>
-		<string>/Users/mgrubb/bin/iterm2-recv-zmodem.sh</string>
-		<string>/Users/mgrubb/bin/iterm2-send-zmodem.sh</string>
-	</array>
 	<key>CopyLastNewline</key>
 	<false/>
 	<key>CopySelection</key>
@@ -7005,6 +7000,8 @@
 	<string>Post Notification</string>
 	<key>MaxVertically</key>
 	<true/>
+	<key>NeverBlockSystemShutdown</key>
+	<true/>
 	<key>NeverWarnAboutShortLivedSessions_06D5DA9C-E8B9-4C6B-B3AF-A9C3F7E30329</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_083E7F11-9A08-4A88-804B-E26C67849741</key>
@@ -7355,7 +7352,7 @@
 			<key>Cursor Type</key>
 			<integer>2</integer>
 			<key>Custom Command</key>
-			<string>Yes</string>
+			<string>No</string>
 			<key>Custom Directory</key>
 			<string>Advanced</string>
 			<key>Default Bookmark</key>

@@ -1,3 +1,4 @@
+filetype plugin on
 " Disable ALE LSP
 let g:ale_disable_lsp = 1
 
@@ -9,23 +10,24 @@ Plug 'airblade/vim-rooter' " Changes working directory to project root
 Plug 'cespare/vim-toml'
 Plug 'vim-airline/vim-airline'
 Plug 'junegunn/vim-easy-align'
+" Plug 'vim-autoformat/vim-autoformat'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
 "Plug 'tpope/vim-rails'
-Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
+"Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'lambdalisue/vim-pyenv', { 'for': 'python' }
 " Plug 'natebosch/vim-lsc'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fireplace'
+"Plug 'tpope/vim-fireplace'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'mattn/emmet-vim', {'for': ['html', 'vue', 'css']}
 Plug 'fatih/vim-go', {'for': 'go', 'do': ':GoUpdateBinaries'}
 Plug 'wlangstroth/vim-racket', {'for': ['rkt', 'rktl']}
 "Plug 'AndrewRadev/splitjoin.vim'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-"Plug 'ctrlpvim/ctrlp.vim'
+""Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'
+Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'posva/vim-vue'
 Plug 'andymass/vim-matchup' " enhance % to match language specific pairs
 Plug 'tpope/vim-fugitive'
@@ -39,11 +41,11 @@ Plug 'bfrg/vim-jq'
 Plug 'bfrg/vim-jqplay'
 Plug 'tpope/vim-repeat'
 Plug 'dense-analysis/ale' " Better syntax/linter
-"Plug 'fukamachi/vlime', {'rtp': 'vim/'}
+"" Plug 'fukamachi/vlime', {'rtp': 'vim/'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Code completion engine
-Plug 'jvirtanen/vim-hcl'
-
-" Language Servers
+Plug 'jvirtanen/vim-hcl', {'for': 'hcl'}
+"
+"" Language Servers
 CocPlug 'fannheyward/coc-texlab'
 CocPlug 'neoclide/coc-pairs'
 CocPlug 'neoclide/coc-json'
@@ -51,21 +53,23 @@ CocPlug 'neoclide/coc-yaml'
 CocPlug 'neoclide/coc-html'
 CocPlug 'fannheyward/coc-rust-analyzer'
 CocPlug 'josa42/coc-go'
-CocPlug 'neoclide/coc-vetur'
+CocPlug 'yaegassy/coc-volar'
 CocPlug 'pappasam/coc-jedi'
 CocPlug 'iamcco/coc-flutter'
+CocPlug 'neoclide/coc-prettier'
+CocPlug 'neoclide/coc-tsserver'
 Plug 'neoclide/coc-sources',  {'rtp': 'packages/ultisnips'}
-
-" Color schemes
+"
+"" Color schemes
 Plug 'rakr/vim-one'
-"Plug 'wesgibbs/vim-irblack'
-"Plug 'ayu-theme/ayu-vim'
+""Plug 'wesgibbs/vim-irblack'
+""Plug 'ayu-theme/ayu-vim'
 Plug 'chriskempson/base16-vim'
-Plug 'mgrubb/vim-colorscheme-thaumaturge'
-"Plug 'dim13/smyck.vim'
-"Plug 'crater2150/vim-theme-chroma'
-"Plug 'srcery-colors/srcery-vim'
-Plug 'vim-scripts/Relaxed-Green'
+"Plug 'mgrubb/vim-colorscheme-thaumaturge'
+""Plug 'dim13/smyck.vim'
+""Plug 'crater2150/vim-theme-chroma'
+""Plug 'srcery-colors/srcery-vim'
+"Plug 'vim-scripts/Relaxed-Green'
 call plug#end()
 
 " Set Editing preferences
@@ -136,6 +140,8 @@ vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 nnoremap <leader>u :call url#Open()<CR>
 
+nnoremap <silent> <Leader>f :CocCommand editor.action.formatDocument<CR>
+
 " Plugin Specific settings
 let g:NERDTreeIgnore=['node_modules', 'vendor']
 let g:rainbow_active = 1
@@ -194,26 +200,35 @@ autocmd BufNewFile,BufRead *.fizz :set syntax=go
 autocmd FileType go set autowrite
 
 " CoC
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-
-function! s:check_back_space() abort
+function! CheckBackSpace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1] =~# '\s'
 endfunction
+" inoremap <silent><expr> <TAB>
+      " \ pumvisible() ? "\<C-n>" :
+      " \ <SID>check_back_space() ? "\<TAB>" :
+      " \ coc#refresh()
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackSpace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" inoremap <silent><expr> <CR> coc#pum#visible() ? 
+        " \ coc#_select_confirm() : "\<C-g>u\<CR>"
+inoremap <silent><expr> <cr> pumvisible() ?
+      \ "\<C-y>" : "\<C-g>u\<CR>"
 
 " Use <c-.> to trigger completion
 inoremap <silent><expr> <C-.> coc#refresh()
 
 " Use <CR> to confirm completion, `<C-g>u` means break undo chain at current
 " position. CoC only does snippet and additional edit on confirm.
-if exists('*complete_info')
-  inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
+" if exists('*complete_info')
+  " inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+" else
+  " imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" endif
 
 
 " Use `[g` and `]g` to navigate diagnostics
@@ -272,6 +287,7 @@ nnoremap <silent> <space>a :CocAction<CR>
 let g:NERDSpaceDelims = 1
 let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhiteSpace = 1
+let g:NERDCustomDelimiters = {'vue': {'left': '<!--', 'right': '-->'}}
 
 "Syntastic
 "set statusline+=%#warningmsg#

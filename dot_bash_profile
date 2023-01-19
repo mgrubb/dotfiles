@@ -14,20 +14,21 @@ if which pyenv >/dev/null 2>&1
 then
   export PYENV_ROOT="${HOME}/.pyenv"
   eval "$(pyenv init --path)"
-  eval "$(pyenv init - --no-rehash ${SHELL})"
+  eval "$(pyenv init - --no-rehash "${SHELL}")"
 fi
 
 test -d "${HOME}/.nvm" && source "${HOME}/.nvm/nvm.sh"
 
-case "$(basename ${SHELL})" in
-  bash) source ${HOME}/.bashrc ;;
+case "$(basename "${SHELL}")" in
+  bash) source "${HOME}"/.bashrc ;;
   *ksh*) export ENV="${HOME}/.kshrc" ;;
 esac
 
 if [ -d "${HOME}/.shell-init" ]
 then
-  for si in ${HOME}/.shell-init/*.sh
+  for si in "${HOME}"/.shell-init/*.sh
   do
+    # shellcheck source=/dev/null
     . "${si}"
   done
 fi
@@ -77,7 +78,7 @@ then
   then
     dircolors=/usr/local/bin/gdircolors
   fi
-  eval "$(${dircolors} ${HOME}/.dircolors)"
+  eval "$(${dircolors} "${HOME}"/.dircolors)"
 fi
 
 if [ -e "${HOME}/.gpg-agent-info" ]
@@ -101,7 +102,7 @@ export PRIVATE_ASDF_INSTALL_DIR
 
 HOSTNAME="$(uname -n)"
 
-eval "$(direnv hook $(basename ${SHELL}))"
+eval "$(direnv hook "$(basename "${SHELL}")")"
 
 test -n "${ITERM_PROFILE}" -a -e "${HOME}/.iterm2_shell_integration.bash" && \
   source "${HOME}/.iterm2_shell_integration.bash"
@@ -111,5 +112,7 @@ then
   source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc
   source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc
 fi
+
+export TZ_LIST='US/Eastern;US/Mountain;US/Pacific;UTC'
 
 cleanup_functions
